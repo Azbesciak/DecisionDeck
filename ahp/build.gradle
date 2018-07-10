@@ -3,4 +3,21 @@ plugins {
 }
 apply plugin: 'application'
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply from: '../gradle/build.gradle'
+repositories {
+    maven {
+        url "http://dl.bintray.com/kyonifer/maven"
+        jcenter()
+    }
+}
+dependencies {
+    compile group: "koma", name: "core", version: "0.11"
+    // Optional, uses EJML's optimized routines for matrix operations
+    compile group: "koma", name: "backend-matrix-ejml", version: "0.11"
+    testCompile(
+            'org.codehaus.groovy:groovy-all:2.4.4',
+            'junit:junit:4.12',
+            'org.spockframework:spock-core:1.0-groovy-2.4'
+    )
+}

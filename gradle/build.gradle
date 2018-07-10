@@ -24,8 +24,6 @@ wrapper {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile files('../libs/ParserUtils.jar')
-
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.0-M1'
 }
 
 compileKotlin {
