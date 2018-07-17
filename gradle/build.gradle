@@ -17,8 +17,10 @@ version '1.0'
 repositories {
     mavenCentral()
 }
+
 wrapper {
     jarFile = "${project.projectDir}/../gradle/wrapper/gradle-wrapper.jar"
+    gradleVersion = '4.8.1'
 }
 
 dependencies {
