@@ -113,13 +113,69 @@ class FirstSpecification extends Specification {
 
         def ranking = Alternative.ranking(alternatives)
         ranking[0].first == dick.name
-        that ranking[0].second, closeTo(0.492,0.001)
+        that ranking[0].second, closeTo(0.492, 0.001)
 
         ranking[1].first == tom.name
-        that ranking[1].second, closeTo(0.358,0.001)
+        that ranking[1].second, closeTo(0.358, 0.001)
 
         ranking[2].first == harry.name
-        that ranking[2].second, closeTo(0.149,0.001)
+        that ranking[2].second, closeTo(0.149, 0.001)
+    }
+
+    def "tutorial example"() {
+        def x = alt("X")
+        def y = alt("Y")
+        def z = alt("Z")
+        given:
+        def alternatives = [
+                x, y, z
+        ]
+
+        List<List<Double>> categoriesPref = [
+                [1, 3, 7, 9],
+                [1 / 3, 1, 5, 7],
+                [1 / 7, 1 / 5, 1, 3],
+                [1 / 9, 1 / 7, 1 / 3, 1]
+        ]
+
+        List<List<Double>> prefA = [
+                [1, 1, 7],
+                [1, 1, 3],
+                [1 / 7, 1 / 3, 1]
+        ]
+
+        List<List<Double>> prefB = [
+                [1, 1 / 5, 1 / 2],
+                [5, 1, 5],
+                [2, 1 / 5, 1]
+        ]
+
+        List<List<Double>> prefC = [
+                [1, 1, 1],
+                [1, 1, 1],
+                [1, 1, 1]
+        ]
+
+        List<List<Double>> prefD = [
+                [1, 1, 1],
+                [1, 1, 1],
+                [1, 1, 1]
+        ]
+
+        def goal = new Category("Goal", [
+                new Category("A", alternatives, prefA),
+                new Category("B", alternatives, prefB),
+                new Category("C", alternatives, prefC),
+                new Category("D", alternatives, prefD)
+        ], categoriesPref)
+        expect:
+        that goal["A"].cr, closeTo(0.069,0.001)
+        that goal["A"].ci, closeTo(0.04,0.001)
+
+        that goal["B"].cr, closeTo(0.046,0.001)
+        that goal["B"].ci, closeTo(0.027,0.001)
+
+        that goal.totalCR, closeTo(0.038,0.001)
     }
 
     def alt(name) {
