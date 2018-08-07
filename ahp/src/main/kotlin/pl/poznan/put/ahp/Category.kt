@@ -16,12 +16,7 @@ class Alternative(name: String, val preferences: MutableMap<String, Double> = mu
     operator fun get(name: String) = preferences[name]
 
     fun total() = preferences.map { it.value }.sum()
-    override fun toString(): String = "Alternative(" +
-            "name=$name," +
-            " preferences=$preferences," +
-            ")"
-
-
+    override fun toString() = "Alternative(name=$name, preferences=$preferences,)"
 }
 
 class Category(name: String,
@@ -33,6 +28,8 @@ class Category(name: String,
 
     var cr = BigDecimal.ONE
     var ci = BigDecimal.ONE
+
+    val validity get() = cr <= "0.1".toBigDecimal()
 
     init {
         validate()
@@ -50,9 +47,9 @@ class Category(name: String,
             }
         }
 
-
     private fun validate() {
         require(subNodes.size == preferenceMat.size) { "categories number is not equal to preferences n" }
+        require(subNodes.size < ri.size) {"number of categories must be less or equal to ${ri.size - 1}"}
         preferenceMat.forEachIndexed { i, row ->
             require(row.size == preferenceMat.size) {
                 "row $i differs in size (${row.size} but expected ${preferenceMat.size})"
@@ -69,7 +66,11 @@ class Category(name: String,
         val normalized = eigenVector.div(eigenVector.elementSum())
         if (n > 1) {
             val bdn = BigDecimal(n)
-            val maxValue = BigDecimal((0 until n).map { eig.getEigenvalue(it).magnitude }.max() ?: 0.0).setScale(8, RoundingMode.HALF_UP)
+            val maxValue = BigDecimal(
+                    (0 until n)
+                            .map { eig.getEigenvalue(it).magnitude }
+                            .max() ?: 0.0
+            ).setScale(8, RoundingMode.HALF_UP)
             ci = (maxValue - bdn) / (bdn - BigDecimal.ONE)
             cr = ci / ri[n]
         }
@@ -82,24 +83,16 @@ class Category(name: String,
         }
     }
 
-    private val totalCi: BigDecimal = ci + sumBy { totalCi }
-    private val totalRi: BigDecimal = ri[subNodes.size] + sumBy { totalRi }
+    private val totalCi: BigDecimal get() = ci + sumBy { totalCi }
+    private val totalRi: BigDecimal get() = ri[subNodes.size] + sumBy { totalRi }
 
-    private fun sumBy(f: Category.() -> BigDecimal) = subNodes
+    private inline fun sumBy(f: Category.() -> BigDecimal) = subNodes
             .map { (it as? Category)?.f() ?: BigDecimal.ZERO }
             .reduce { a, b -> a + b }
 
     fun getTotalCR() = totalCi / totalRi
 
     operator fun get(nodeName: String) = subNodes.find { it.name == nodeName }
-    override fun toString(): String =
-            "Category(" +
-                    "name=$name," +
-                    " subNodes=$subNodes," +
-                    " preferenceMat=$preferenceMat," +
-                    " preference=$preference," +
-                    " cr=$cr," +
-                    " ci=$ci)"
-
-
+    override fun toString() =
+            "Category(name=$name, subNodes=$subNodes, preferenceMat=$preferenceMat, preference=$preference, cr=$cr, ci=$ci)"
 }
