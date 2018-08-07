@@ -6,7 +6,7 @@ import spock.lang.Specification
 import static spock.util.matcher.HamcrestMatchers.closeTo
 import static spock.util.matcher.HamcrestSupport.that
 
-class FirstSpecification extends Specification {
+class AHPTests extends Specification {
 //    http://www.baeldung.com/groovy-spock
     def "eigen test"() {
         given:
@@ -181,4 +181,6 @@ class FirstSpecification extends Specification {
     def alt(name) {
         new Alternative(name, [:])
     }
+
+
 }

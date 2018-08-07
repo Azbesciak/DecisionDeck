@@ -25,7 +25,8 @@ wrapper {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    compile files('../libs/ParserUtils.jar')
+    compile files('../libs/XMCDA.jar')
+    compile project(':utils')
 }
 
 compileKotlin {
