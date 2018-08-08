@@ -127,7 +127,7 @@ public class Utils
             x_execution_results.addError(getMessage(msg, throwable));
         }
     }
-    public static void readXMCDAv2_and_update(org.xmcda.v2.XMCDA xmcda_v2, File file, String[] load_tags)
+    public static void readXMCDAv2_and_update(org.xmcda.v2.XMCDA xmcda_v2, File file, String... load_tags)
             throws IOException, JAXBException, SAXException
     {
         final org.xmcda.v2.XMCDA new_xmcda = XMCDAParser.readXMCDA(file, load_tags);

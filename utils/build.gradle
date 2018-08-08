@@ -21,6 +21,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile files("../libs/XMCDA.jar")
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '25.1-jre'
 

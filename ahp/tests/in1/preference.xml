@@ -3,7 +3,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
 	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
-    <alternativesComparisons id="preference">
+    <alternativesComparisons name="preference">
         <pairs>
             <pair>
                 <initial>
@@ -40,7 +40,7 @@
             </pair>
         </pairs>
     </alternativesComparisons>
-    <alternativesComparisons id="alamakota">
+    <alternativesComparisons name="sugar">
         <pairs>
             <pair>
                 <initial>
