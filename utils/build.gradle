@@ -21,7 +21,12 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile files("../libs/XMCDA.jar")
-    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+    compile group: 'com.sun.activation', name: 'javax.activation', version: '1.2.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.4.0-b180830.0438'
+// https://mvnrepository.com/artifact/com.sun.istack/istack-commons-runtime
+    compile group: 'com.sun.istack', name: 'istack-commons-runtime', version: '3.0.7'
+
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '25.1-jre'
 

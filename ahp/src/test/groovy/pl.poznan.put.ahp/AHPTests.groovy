@@ -7,7 +7,6 @@ import static spock.util.matcher.HamcrestMatchers.closeTo
 import static spock.util.matcher.HamcrestSupport.that
 
 class AHPTests extends Specification {
-//    http://www.baeldung.com/groovy-spock
     def "eigen test"() {
         given:
         double[][] mat = [

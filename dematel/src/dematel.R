@@ -42,7 +42,9 @@ dematel = function(Z) {
     abline(h = mean(y), v = mean(x))
     text(x, y, df$Criterion)
     View(df)
+    return(df)
 }
-
-Z = as.matrix(read.csv("myfile.csv", header = TRUE, sep = ",", row.names = 1))
-dematel(Z)
+#
+# Z = as.matrix(read.csv("myfile.csv", header = TRUE, sep = ",", row.names = 1))
+# value = dematel(Z)
+# print(value)

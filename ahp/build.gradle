@@ -9,6 +9,7 @@ repositories {
     maven {
         url "http://dl.bintray.com/kyonifer/maven"
         jcenter()
+        mavenCentral()
     }
 }
 dependencies {
