@@ -1,25 +1,18 @@
 package pl.poznan.put.ahp
 
-import org.xmcda.ProgramExecutionResult
-import org.xmcda.v2.XMCDA
-import pl.poznan.put.xmcda.Utils
+
 import spock.lang.Specification
 
 class XMCDATest extends Specification {
     def "should load tests for fruits"() {
         given:
         def path = "tests/in1"
-        def xmcda = new XMCDA()
-        def results = new ProgramExecutionResult()
+        def reader = new XMCDA2Reader(path, ["preference", "hierarchy", "alternatives"])
         when:
-        ["preference", "hierarchy", "alternatives"]
-                .collect { new File("$path/${it}.xml") }
-                .forEach { Utils.loadXMCDAv2(xmcda, it, true, results) }
+        def xmcda = reader.read()
         then:
-        xmcda.projectReferenceOrMethodMessagesOrMethodParameters.size() == 5
-        xmcda.projectReferenceOrMethodMessagesOrMethodParameters
-                .findAll { ("alternativesComparisons" == it.name.localPart)}
-                .size() == 2
-        results.isOk()
+        xmcda.alternatives.size() == 3
+        xmcda.alternativesMatricesList.size() == 2
+        reader.executionResult.isOk()
     }
 }
