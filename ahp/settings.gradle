@@ -1,4 +1,0 @@
-rootProject.name = 'ahp'
-
-include ':utils'
-project(':utils').projectDir = new File("../utils")

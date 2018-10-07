@@ -1,20 +1,12 @@
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.60"
-}
-apply plugin: 'application'
-apply plugin: 'java'
 apply plugin: 'groovy'
-apply from: '../gradle/build.gradle'
+
 repositories {
     maven {
         url "http://dl.bintray.com/kyonifer/maven"
-        jcenter()
-        mavenCentral()
     }
 }
 dependencies {
     compile group: "koma", name: "core", version: "0.11"
-    // Optional, uses EJML's optimized routines for matrix operations
     compile group: "koma", name: "backend-matrix-ejml", version: "0.11"
     testCompile(
             'org.codehaus.groovy:groovy-all:2.4.4',

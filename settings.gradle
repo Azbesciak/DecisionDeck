@@ -1,0 +1,4 @@
+rootProject.name = "decision-deck"
+include "ahp"
+include "utils"
+include "topsis"

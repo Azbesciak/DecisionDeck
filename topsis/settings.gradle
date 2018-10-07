@@ -1,4 +1,0 @@
-rootProject.name = 'topsis'
-
-include ':utils'
-project(':utils').projectDir = new File("../utils")
