@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmc:XMCDA xmlns:xmc="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <projectReference>
+        <comment>"Six real cars" data set. Thanks to Quantin Hayez for having gathered
+            the data (from the manufacturers web sites). Transformed into XMCDA
+            and published with his permission. Note that the weights and thresholds have been
+            arbitrarily fixed.</comment>
+    </projectReference>
+
+    <criteria>
+        <criterion id="c01" name="Price">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="ind">
+                    <constant>
+                        <real>500.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="pref">
+                    <constant>
+                        <real>3000.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="veto">
+                    <constant>
+                        <real>4000.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c02" name="Power">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>max</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="ind">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="pref">
+                    <constant>
+                        <real>30.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c03" name="0-100">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="ind">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="pref">
+                    <constant>
+                        <real>2.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c04" name="Consumption">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="ind">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="pref">
+                    <constant>
+                        <real>1.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+        <criterion id="c05" name="CO2">
+            <scale>
+                <quantitative>
+                    <preferenceDirection>min</preferenceDirection>
+                </quantitative>
+            </scale>
+            <thresholds>
+                <threshold mcdaConcept="ind">
+                    <constant>
+                        <real>0.0</real>
+                    </constant>
+                </threshold>
+                <threshold mcdaConcept="pref">
+                    <constant>
+                        <real>100.0</real>
+                    </constant>
+                </threshold>
+            </thresholds>
+        </criterion>
+    </criteria>
+
+</xmc:XMCDA>

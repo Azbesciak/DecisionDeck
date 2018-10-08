@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class Utils {
     public enum XmcdaVersion {
-        v2(XMCDAConverter.V2), v3(XMCDAConverter.V3);
+        v2("--v2"), v3("--v3");
         final String versionFlag;
 
         XmcdaVersion(String versionFlag) {
