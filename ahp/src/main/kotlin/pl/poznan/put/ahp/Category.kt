@@ -5,23 +5,31 @@ import org.ejml.simple.SimpleMatrix
 import java.math.BigDecimal
 import java.math.RoundingMode
 
+class Ranking private constructor(
+        private val ranking: List<Pair<String, Double>>
+) : List<Pair<String, Double>> by ranking {
+    constructor(alternatives: Iterable<Alternative>) :
+            this(alternatives.map { it.name to it.total() }.sortedByDescending { it.second })
+}
+
 sealed class Node(val name: String)
 class Alternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name) {
-
     companion object {
         @JvmStatic
-        fun List<Alternative>.ranking() = map { it.name to it.total() }.sortedByDescending { it.second }
+        fun List<Alternative>.ranking() = Ranking(this)
     }
 
     operator fun get(name: String) = preferences[name]
 
     fun total() = preferences.map { it.value }.sum()
-    override fun toString() = "Alternative(name=$name, preferences=$preferences,)"
+    override fun toString() = "Alternative(name=$name, preferences=$preferences)"
 }
 
-class Category(name: String,
-               val subNodes: List<Node>,
-               val preferenceMat: List<List<Double>>) : Node(name) {
+class Category(
+        name: String,
+        val subNodes: List<Node>,
+        val preferenceMat: List<List<Double>>
+) : Node(name) {
     companion object {
         val ri = arrayOf(0.0, 0.0, 0.0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49).map { BigDecimal(it) }
     }
@@ -39,17 +47,17 @@ class Category(name: String,
     var preference: Double = 1.0
         set(value) {
             field = value
-            subNodes.forEachIndexed { _, c ->
-                when (c) {
-                    is Category -> c.preference *= value
-                    is Alternative -> c.preferences[name] = (c.preferences[name] ?: 1.0) * value
+            subNodes.forEach {
+                when (it) {
+                    is Category -> it.preference *= value
+                    is Alternative -> it.preferences[name] = (it.preferences[name] ?: 1.0) * value
                 }
             }
         }
 
     private fun validate() {
         require(subNodes.size == preferenceMat.size) { "categories number is not equal to preferences n" }
-        require(subNodes.size < ri.size) {"number of categories must be less or equal to ${ri.size - 1}"}
+        require(subNodes.size < ri.size) { "number of categories must be less or equal to ${ri.size - 1}" }
         preferenceMat.forEachIndexed { i, row ->
             require(row.size == preferenceMat.size) {
                 "row $i differs in size (${row.size} but expected ${preferenceMat.size})"

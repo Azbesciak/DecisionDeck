@@ -44,7 +44,7 @@ class AHPTests extends Specification {
         that c["Cherry"][CATEGORY_NAME], closeTo(0.0719, 0.001)
     }
 
-    //https://en.wikipedia.org/wiki/Analytic_hierarchy_process_%E2%80%93_car_example
+    //https://en.wikipedia.org/wiki/Analytic_hierarchy_process
     def "wikipedia ahp-leader example"() {
         def tom = alt("Tom")
         def dick = alt("Dick")

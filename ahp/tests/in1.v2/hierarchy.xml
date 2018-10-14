@@ -10,7 +10,7 @@
             <comment>A hierarchy of criteria</comment>
         </description>
         <node>
-            <criterionID>Preference</criterionID>
+            <criterionID>preference</criterionID>
         </node>
     </hierarchy>
 

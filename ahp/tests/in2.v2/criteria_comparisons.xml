@@ -3,78 +3,74 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
 	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
-    <alternativesComparisons name="preference">
+    <criteriaComparisons name="root" id="root">
         <pairs>
             <pair>
                 <initial>
-                    <alternativeID>banana</alternativeID>
+                    <criterionID>experience</criterionID>
                 </initial>
                 <terminal>
-                    <alternativeID>apple</alternativeID>
+                    <criterionID>education</criterionID>
                 </terminal>
                 <value>
-                    <integer>3</integer>
+                    <real>4</real>
                 </value>
             </pair>
             <pair>
                 <initial>
-                    <alternativeID>banana</alternativeID>
+                    <criterionID>experience</criterionID>
                 </initial>
                 <terminal>
-                    <alternativeID>cherry</alternativeID>
+                    <criterionID>charisma</criterionID>
                 </terminal>
                 <value>
-                    <integer>7</integer>
+                    <real>3</real>
                 </value>
             </pair>
             <pair>
                 <initial>
-                    <alternativeID>apple</alternativeID>
+                    <criterionID>experience</criterionID>
                 </initial>
                 <terminal>
-                    <alternativeID>cherry</alternativeID>
+                    <criterionID>age</criterionID>
                 </terminal>
                 <value>
-                    <integer>5</integer>
+                    <real>7</real>
+                </value>
+            </pair>
+            <pair>
+                <initial>
+                    <criterionID>charisma</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>education</criterionID>
+                </terminal>
+                <value>
+                    <real>3</real>
+                </value>
+            </pair>
+            <pair>
+                <initial>
+                    <criterionID>education</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>age</criterionID>
+                </terminal>
+                <value>
+                    <real>3</real>
+                </value>
+            </pair>
+            <pair>
+                <initial>
+                    <criterionID>charisma</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>age</criterionID>
+                </terminal>
+                <value>
+                    <real>5</real>
                 </value>
             </pair>
         </pairs>
-    </alternativesComparisons>
-    <alternativesComparisons name="sugar">
-        <pairs>
-            <pair>
-                <initial>
-                    <alternativeID>banana</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>apple</alternativeID>
-                </terminal>
-                <value>
-                    <integer>3</integer>
-                </value>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>banana</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>cherry</alternativeID>
-                </terminal>
-                <value>
-                    <integer>7</integer>
-                </value>
-            </pair>
-            <pair>
-                <initial>
-                    <alternativeID>apple</alternativeID>
-                </initial>
-                <terminal>
-                    <alternativeID>cherry</alternativeID>
-                </terminal>
-                <value>
-                    <integer>5</integer>
-                </value>
-            </pair>
-        </pairs>
-    </alternativesComparisons>
+    </criteriaComparisons>
 </xmc:XMCDA>

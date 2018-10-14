@@ -1,7 +1,7 @@
 module Utils {
     requires XMCDA;
-    requires java.xml;
-    requires java.xml.bind;
+    requires transitive java.xml;
+    requires transitive java.xml.bind;
     requires kotlin.stdlib;
     exports pl.poznan.put.xmcda;
 }
