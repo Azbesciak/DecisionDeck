@@ -153,7 +153,7 @@ public class Utils {
      * @param throwable a non-null {@link Throwable}
      * @return the throwable's message, or "unknown" if it is null
      */
-    static String getMessage(Throwable throwable) {
+    public static String getMessage(Throwable throwable) {
         if (throwable.getMessage() != null)
             return throwable.getMessage();
         // when handling XMCDA v2 files, errors may be embedded in a JAXBException
@@ -168,7 +168,7 @@ public class Utils {
      * @param throwable
      * @return the concatenated String
      */
-    static String getMessage(String message, Throwable throwable) {
+    public static String getMessage(String message, Throwable throwable) {
         return message + getMessage(throwable);
     }
 

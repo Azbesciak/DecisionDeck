@@ -1,21 +1,23 @@
 package pl.poznan.put.ahp
 
+import org.xmcda.ProgramExecutionResult
+import org.xmcda.parsers.xml.xmcda_v3.XMCDAParser
 import org.xmcda.v2.*
 import org.xmcda.v2.Node
-import pl.poznan.put.xmcda.Utils
-import pl.poznan.put.xmcda.XMCDA2Reader
-import pl.poznan.put.xmcda.XmcdaMapping
-import pl.poznan.put.xmcda.getTags
 import pl.poznan.put.ahp.Alternative.Companion.ranking
+import pl.poznan.put.xmcda.*
+import pl.poznan.put.xmcda.Utils.*
+import java.io.File
 
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
-        val parsed = Utils.parseCmdLineArguments(args)
-        parseV2(parsed.inputDirectory)
+        val arguments = parseCmdLineArguments(args)
+        val result = processV2(arguments.inputDirectory)
+        writeResult(arguments.outputDirectory, result)
     }
 
-    private fun parseV2(inputDir: String) {
+    private fun processV2(inputDir: String): Result<org.xmcda.XMCDA> {
         val xmcdA2Reader = XMCDA2Reader(inputDir,
                 XmcdaMapping("alternatives"),
                 XmcdaMapping("criteria"),
@@ -25,12 +27,28 @@ object Main {
         )
         val result = xmcdA2Reader.read()
         if (result.executionResult.isError)
-            return
-        val ranking = V2Parser(result.xmcda).ranking()
-        ranking.forEach {
-            println(it)
+            return Result(result.executionResult)
+        return try {
+            val ranking = V2Parser(result.xmcda!!).ranking()
+            val xmcdaRanking = RankingParser.convert(ranking)
+            Result(result.executionResult, xmcdaRanking)
+        } catch (e: Throwable) {
+            result.executionResult.add(e)
+            Result(result.executionResult)
         }
+    }
 
+    private fun writeResult(outputDir: String, ranking: Result<org.xmcda.XMCDA>) {
+        File(outputDir).mkdirs()
+        try {
+            ranking.xmcda?.apply {
+                val rankingFile = File(outputDir, "ranking.xml")
+                XMCDAParser().writeXMCDA(this, rankingFile)
+            }
+        } catch (t: Throwable) {
+            ranking.executionResult.add(t)
+        }
+        Utils.writeProgramExecutionResultsAndExit(File(outputDir, "messages.xml"), ranking.executionResult, XmcdaVersion.v2)
     }
 
     class V2Parser(private val xmcda: XMCDA) {
@@ -58,6 +76,10 @@ object Main {
                     f()
                     build()
                 }
+    }
+
+    private fun ProgramExecutionResult.add(t: Throwable) {
+        addError(getMessage(t))
     }
 
     class AhpBuilder {
@@ -120,11 +142,13 @@ object Main {
         fun build(): Ranking {
             val criteriaFromPreference = getCriteriaFromPreference()
             val leafCriteria = relations.leafs
-            require(criteriaFromPreference == leafCriteria) { """
+            require(criteriaFromPreference == leafCriteria) {
+                """
                 |leaf criteria must be the same in hierarchy and in preferences.
                 |   criteria from hierarchy: $leafCriteria
                 |   preferences: $criteriaFromPreference
-            """.trimMargin() }
+            """.trimMargin()
+            }
             val criteriaPreferences = CriteriaPreferences(criteriaComp.toMatrix { k -> relations.of(k) }.toMutableMap())
             createLeafsWithAlternatives(leafCriteria)
                     .asLeafs()

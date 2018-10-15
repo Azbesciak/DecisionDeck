@@ -13,9 +13,9 @@ abstract class XmcdaReader<T>(
         ) {
     private val readed = AtomicBoolean(false)
     protected val executionResult = ProgramExecutionResult()
-    fun read(): ReadResult<T> {
+    fun read(): Result<T> {
         processFiles()
-        return ReadResult(executionResult, xmcda)
+        return Result(executionResult, xmcda)
     }
 
     private fun processFiles() {
@@ -49,9 +49,9 @@ data class XmcdaMapping(
         val tags: List<String> = listOf(fileName)
 )
 
-data class ReadResult<T>(
+data class Result<T>(
         val executionResult: ProgramExecutionResult,
-        val xmcda: T
+        val xmcda: T? = null
 )
 
 val XMCDA.tagValues get() = projectReferenceOrMethodMessagesOrMethodParameters

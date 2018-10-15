@@ -6,11 +6,16 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 class Ranking private constructor(
-        private val ranking: List<Pair<String, Double>>
-) : List<Pair<String, Double>> by ranking {
+        private val ranking: List<RankingPosition>
+) : List<RankingPosition> by ranking {
     constructor(alternatives: Iterable<Alternative>) :
-            this(alternatives.map { it.name to it.total() }.sortedByDescending { it.second })
+            this(alternatives.map { RankingPosition(it.name, it.total()) }.sortedByDescending { it.value })
 }
+
+data class RankingPosition(
+        val alternativeId: String,
+        val value: Double
+)
 
 sealed class Node(val name: String)
 class Alternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name) {
