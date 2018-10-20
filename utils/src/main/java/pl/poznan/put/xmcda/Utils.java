@@ -50,7 +50,6 @@ public class Utils {
      * @see #parseCmdLineArguments(String[])
      */
     public static class Arguments {
-        public XmcdaVersion version;
         public String inputDirectory;
         public String outputDirectory;
     }
@@ -78,11 +77,10 @@ public class Utils {
      */
     public static Arguments parseCmdLineArguments(String[] args) throws InvalidCommandLineException {
         // Let's make it dead simple
-        if (args.length != 5)
-            throw new InvalidCommandLineException("Invalid number of arguments (required: 5, provided: " + args.length + ")");
+        if (args.length != 4)
+            throw new InvalidCommandLineException("Invalid number of arguments (required: 4, provided: " + args.length + ")");
         Arguments arguments = new Arguments();
-        arguments.version = getXmcdaVersion(args[0]);
-        for (int index = 1; index <= 3; index += 2) {
+        for (int index = 0; index <= 2; index += 2) {
             String arg = args[index];
             if ("-i".equals(arg) || "--input-directory".equals(arg))
                 arguments.inputDirectory = args[index + 1];
