@@ -11,6 +11,18 @@ data class RankEntry(val alternative: Alternative, val value: Double) {
     override fun toString() = "${alternative.name} - $value"
 }
 
+class Ranking private constructor(
+        private val ranking: List<RankEntry>
+) : List<RankEntry> by ranking {
+    constructor(alternatives: List<Alternative>, coef: List<Double>) : this(
+            alternatives.zip(coef)
+                    .asSequence()
+                    .sortedByDescending { it.second }
+                    .map { RankEntry(it.first, it.second) }
+                    .toList()
+    )
+}
+
 class Topsis(private val alternatives: List<Alternative>, private val criteria: List<Criterion>) {
     private val weights: DoubleArray = criteria.map { it.weight }.toDoubleArray()
     private val decisionMatrix: Array<DoubleArray> = alternatives.map { alt ->
@@ -25,7 +37,7 @@ class Topsis(private val alternatives: List<Alternative>, private val criteria: 
     private val alternativeNo: Int = alternatives.size
     private val criteriaNo: Int = alternatives[0].criteriaValues.size
 
-    fun calculate(): List<RankEntry> {
+    fun calculate(): Ranking {
         val normDecMat = calculateNormalizedDecisionMatrix()
         val weighNormDecMat = calculateWeightedNormalizedDecisionMatrix(normDecMat)
         val posIdealSol = calculateIdealSolution(weighNormDecMat) { a, b -> a > b }
@@ -33,7 +45,7 @@ class Topsis(private val alternatives: List<Alternative>, private val criteria: 
         val distToPosIdealSol = calculateDistanceToIdealSolution(weighNormDecMat, posIdealSol)
         val distToNegIdealSol = calculateDistanceToIdealSolution(weighNormDecMat, negIdealSol)
         val coef = calculateClosenessCoefficient(distToPosIdealSol, distToNegIdealSol)
-        return alternatives.zip(coef).sortedByDescending { it.second }.map { RankEntry(it.first, it.second) }
+        return Ranking(alternatives, coef)
     }
 
     private fun calculateNormalizedDecisionMatrix(): Array<DoubleArray> {
@@ -94,8 +106,8 @@ class Topsis(private val alternatives: List<Alternative>, private val criteria: 
         return distanceToIdealSol
     }
 
-    private fun calculateClosenessCoefficient(distToPosIdealSol: DoubleArray, distToNegIdealSol: DoubleArray)=
-        distToNegIdealSol
-                .zip(distToPosIdealSol)
-                .map { (neg, pos) -> neg / (neg + pos) }
+    private fun calculateClosenessCoefficient(distToPosIdealSol: DoubleArray, distToNegIdealSol: DoubleArray) =
+            distToNegIdealSol
+                    .zip(distToPosIdealSol)
+                    .map { (neg, pos) -> neg / (neg + pos) }
 }
