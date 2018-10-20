@@ -12,7 +12,8 @@ object Main {
         val reader = XMCDA2to3Reader(
                 parsed.inputDirectory,
                 XmcdaMapping("alternatives"),
-                XmcdaMapping("criteria", listOf("criteria", "criteriaScales")),
+                XmcdaMapping("criteria"),
+                XmcdaMapping("weights", listOf("criteriaValues")),
                 XmcdaMapping("performance")
         )
         val res = reader.read()

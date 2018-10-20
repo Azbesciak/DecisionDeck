@@ -20,13 +20,18 @@
                 <description>Criteria of comparision</description>
             </documentation>
             <xmcda tag="criteria"/>
-            <xmcda tag="criteriaScales"/>
         </input>
-        <input id="input5" name="performance" displayName="performance table" isoptional="0">
+        <input id="input3" name="performance" displayName="performance table" isoptional="0">
             <documentation>
                 <description>Performance of each alternative on each criterion</description>
             </documentation>
             <xmcda tag="performanceTable"/>
+        </input>
+        <input id="input4" name="weights" displayName="criteria weights" isoptional="0">
+            <documentation>
+                <description>Weights for criteria</description>
+            </documentation>
+            <xmcda tag="criteriaValues"/>
         </input>
 
         <output id="output1" name="ranking" displayName="final ranking">
