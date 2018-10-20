@@ -13,7 +13,7 @@ object Main {
                 parsed.inputDirectory,
                 XmcdaMapping("alternatives"),
                 XmcdaMapping("criteria", listOf("criteria", "criteriaScales")),
-                XmcdaMapping("performanceTable")
+                XmcdaMapping("performance")
         )
         val res = reader.read()
         println(res.xmcda)
