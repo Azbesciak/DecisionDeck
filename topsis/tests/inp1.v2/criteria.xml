@@ -17,23 +17,6 @@
                     <preferenceDirection>min</preferenceDirection>
                 </quantitative>
             </scale>
-            <thresholds>
-                <threshold mcdaConcept="ind">
-                    <constant>
-                        <real>500.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="pref">
-                    <constant>
-                        <real>3000.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="veto">
-                    <constant>
-                        <real>4000.0</real>
-                    </constant>
-                </threshold>
-            </thresholds>
         </criterion>
         <criterion id="c02" name="Power">
             <scale>
@@ -41,18 +24,6 @@
                     <preferenceDirection>max</preferenceDirection>
                 </quantitative>
             </scale>
-            <thresholds>
-                <threshold mcdaConcept="ind">
-                    <constant>
-                        <real>0.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="pref">
-                    <constant>
-                        <real>30.0</real>
-                    </constant>
-                </threshold>
-            </thresholds>
         </criterion>
         <criterion id="c03" name="0-100">
             <scale>
@@ -60,18 +31,6 @@
                     <preferenceDirection>min</preferenceDirection>
                 </quantitative>
             </scale>
-            <thresholds>
-                <threshold mcdaConcept="ind">
-                    <constant>
-                        <real>0.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="pref">
-                    <constant>
-                        <real>2.0</real>
-                    </constant>
-                </threshold>
-            </thresholds>
         </criterion>
         <criterion id="c04" name="Consumption">
             <scale>
@@ -79,18 +38,6 @@
                     <preferenceDirection>min</preferenceDirection>
                 </quantitative>
             </scale>
-            <thresholds>
-                <threshold mcdaConcept="ind">
-                    <constant>
-                        <real>0.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="pref">
-                    <constant>
-                        <real>1.0</real>
-                    </constant>
-                </threshold>
-            </thresholds>
         </criterion>
         <criterion id="c05" name="CO2">
             <scale>
@@ -98,18 +45,6 @@
                     <preferenceDirection>min</preferenceDirection>
                 </quantitative>
             </scale>
-            <thresholds>
-                <threshold mcdaConcept="ind">
-                    <constant>
-                        <real>0.0</real>
-                    </constant>
-                </threshold>
-                <threshold mcdaConcept="pref">
-                    <constant>
-                        <real>100.0</real>
-                    </constant>
-                </threshold>
-            </thresholds>
         </criterion>
     </criteria>
 
