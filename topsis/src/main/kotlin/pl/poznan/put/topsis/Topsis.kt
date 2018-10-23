@@ -1,43 +1,50 @@
 package pl.poznan.put.topsis
 
+import pl.poznan.put.xmcda.ranking.Alternative
+import pl.poznan.put.xmcda.ranking.RankEntry
+import pl.poznan.put.xmcda.ranking.Ranking
+
 enum class CriteriaType {
     COST, PROFIT
 }
 
 data class Criterion(val name: String, val weight: Double, val type: CriteriaType)
-data class Alternative(val name: String, val criteriaValues: Map<Criterion, Int>)
+data class TopsisAlternative(override val name: String, val criteriaValues: Map<Criterion, Double>) : Alternative
 
-data class RankEntry(val alternative: Alternative, val value: Double) {
+data class TopsisRankEntry(
+        override val alternative: TopsisAlternative,
+        override val value: Double
+) : RankEntry<TopsisAlternative> {
     override fun toString() = "${alternative.name} - $value"
 }
 
-class Ranking private constructor(
-        private val ranking: List<RankEntry>
-) : List<RankEntry> by ranking {
-    constructor(alternatives: List<Alternative>, coef: List<Double>) : this(
+class TopsisRanking private constructor(
+        private val ranking: List<TopsisRankEntry>
+) : Ranking<TopsisAlternative>, List<RankEntry<TopsisAlternative>> by ranking {
+    constructor(alternatives: List<TopsisAlternative>, coef: List<Double>) : this(
             alternatives.zip(coef)
                     .asSequence()
                     .sortedByDescending { it.second }
-                    .map { RankEntry(it.first, it.second) }
+                    .map { TopsisRankEntry(it.first, it.second) }
                     .toList()
     )
 }
 
-class Topsis(private val alternatives: List<Alternative>, private val criteria: List<Criterion>) {
+class Topsis(private val alternatives: List<TopsisAlternative>, private val criteria: List<Criterion>) {
     private val weights: DoubleArray = criteria.map { it.weight }.toDoubleArray()
     private val decisionMatrix: Array<DoubleArray> = alternatives.map { alt ->
         criteria.map { cr ->
             val value = alt.criteriaValues[cr] ?: throw NullPointerException(
                     "value for criterion ${cr.name} not found for alternative ${alt.name}"
             )
-            if (cr.type == CriteriaType.COST) -value.toDouble()
-            else value.toDouble()
+            if (cr.type == CriteriaType.COST) -value
+            else value
         }.toDoubleArray()
     }.toTypedArray()
     private val alternativeNo: Int = alternatives.size
     private val criteriaNo: Int = alternatives[0].criteriaValues.size
 
-    fun calculate(): Ranking {
+    fun calculate(): TopsisRanking {
         val normDecMat = calculateNormalizedDecisionMatrix()
         val weighNormDecMat = calculateWeightedNormalizedDecisionMatrix(normDecMat)
         val posIdealSol = calculateIdealSolution(weighNormDecMat) { a, b -> a > b }
@@ -45,7 +52,7 @@ class Topsis(private val alternatives: List<Alternative>, private val criteria: 
         val distToPosIdealSol = calculateDistanceToIdealSolution(weighNormDecMat, posIdealSol)
         val distToNegIdealSol = calculateDistanceToIdealSolution(weighNormDecMat, negIdealSol)
         val coef = calculateClosenessCoefficient(distToPosIdealSol, distToNegIdealSol)
-        return Ranking(alternatives, coef)
+        return TopsisRanking(alternatives, coef)
     }
 
     private fun calculateNormalizedDecisionMatrix(): Array<DoubleArray> {

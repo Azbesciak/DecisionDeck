@@ -110,14 +110,14 @@ class AHPTests extends Specification {
         that dick[ag], closeTo(0.038, 0.001)
         that harry[ag], closeTo(0.004, 0.001)
 
-        def ranking = Alternative.ranking(alternatives)
-        ranking[0].alternativeId == dick.name
+        def ranking = AhpAlternative.ranking(alternatives)
+        ranking[0].alternative == dick
         that ranking[0].value, closeTo(0.492, 0.001)
 
-        ranking[1].alternativeId == tom.name
+        ranking[1].alternative == tom
         that ranking[1].value, closeTo(0.358, 0.001)
 
-        ranking[2].alternativeId == harry.name
+        ranking[2].alternative == harry
         that ranking[2].value, closeTo(0.149, 0.001)
     }
 
@@ -178,7 +178,7 @@ class AHPTests extends Specification {
     }
 
     def alt(name) {
-        new Alternative(name, [:])
+        new AhpAlternative(name, [:])
     }
 
 

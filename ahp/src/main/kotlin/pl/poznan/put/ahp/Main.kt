@@ -4,9 +4,10 @@ import org.xmcda.ProgramExecutionResult
 import org.xmcda.parsers.xml.xmcda_v3.XMCDAParser
 import org.xmcda.v2.*
 import org.xmcda.v2.Node
-import pl.poznan.put.ahp.Alternative.Companion.ranking
+import pl.poznan.put.ahp.AhpAlternative.Companion.ranking
 import pl.poznan.put.xmcda.*
 import pl.poznan.put.xmcda.Utils.*
+import pl.poznan.put.xmcda.ranking.RankingParser
 import java.io.File
 
 object Main {
@@ -62,8 +63,8 @@ object Main {
                 xmcda.getTags(this).flatMap { f(it.value as T) }
 
         fun ranking() = build {
-            alternatives = "alternatives".mapBy<Alternatives, Alternative> {
-                descriptionOrAlternative.map { Alternative((it as org.xmcda.v2.Alternative).id) }
+            alternatives = "alternatives".mapBy<Alternatives, AhpAlternative> {
+                descriptionOrAlternative.map { AhpAlternative((it as org.xmcda.v2.Alternative).id) }
             }.sortedBy { it.name }
             criteria = "criteria".mapBy<Criteria, String> { criterion.map { (it as Criterion).id } }.sorted()
             "hierarchy".forEachValue<Hierarchy> { flatten() }
@@ -87,7 +88,7 @@ object Main {
         var relations = Relations()
         var alternativesPreferences = mutableMapOf<CrytId, List<RelationValue>>()
         var criteriaComp = mutableMapOf<CrytId, List<RelationValue>>()
-        var alternatives = listOf<Alternative>()
+        var alternatives = listOf<AhpAlternative>()
         var topNode: CrytId? = null
 
         fun Hierarchy.flatten() {
@@ -139,7 +140,7 @@ object Main {
             require(it > 0) { "Value must be positive real value, got $it" }
         }
 
-        fun build(): Ranking {
+        fun build(): AhpRanking {
             val criteriaFromPreference = getCriteriaFromPreference()
             val leafCriteria = relations.leafs
             require(criteriaFromPreference == leafCriteria) {
@@ -200,7 +201,7 @@ object Main {
         fun reversed() = RelationValue(secondID, firstID, 1 / value)
     }
 
-    private fun Alternative.relation() = name.relation()
+    private fun AhpAlternative.relation() = name.relation()
     private fun String.relation() = RelationValue(this, this, 1.0)
 
     data class Relations(

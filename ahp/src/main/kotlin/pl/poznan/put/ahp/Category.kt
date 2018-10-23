@@ -2,32 +2,35 @@ package pl.poznan.put.ahp
 
 import koma.matrix.ejml.backend.div
 import org.ejml.simple.SimpleMatrix
+import pl.poznan.put.xmcda.ranking.Alternative
+import pl.poznan.put.xmcda.ranking.RankEntry
+import pl.poznan.put.xmcda.ranking.Ranking
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class Ranking private constructor(
-        private val ranking: List<RankingPosition>
-) : List<RankingPosition> by ranking {
-    constructor(alternatives: Iterable<Alternative>) :
-            this(alternatives.map { RankingPosition(it.name, it.total()) }.sortedByDescending { it.value })
+class AhpRanking private constructor(
+        private val ranking: List<AhpRankEntry>
+) : Ranking<AhpAlternative>, List<RankEntry<AhpAlternative>> by ranking {
+    constructor(alternatives: Iterable<AhpAlternative>) :
+            this(alternatives.map { AhpRankEntry(it, it.total()) }.sortedByDescending { it.value })
 }
 
-data class RankingPosition(
-        val alternativeId: String,
-        val value: Double
-)
+data class AhpRankEntry(
+        override val alternative: AhpAlternative,
+        override val value: Double
+) : RankEntry<AhpAlternative>
 
 sealed class Node(val name: String)
-class Alternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name) {
+class AhpAlternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name), Alternative {
     companion object {
         @JvmStatic
-        fun List<Alternative>.ranking() = Ranking(this)
+        fun List<AhpAlternative>.ranking() = AhpRanking(this)
     }
 
     operator fun get(name: String) = preferences[name]
 
     fun total() = preferences.map { it.value }.sum()
-    override fun toString() = "Alternative(name=$name, preferences=$preferences)"
+    override fun toString() = "AhpAlternative(name=$name, preferences=$preferences)"
 }
 
 class Category(
@@ -55,7 +58,7 @@ class Category(
             subNodes.forEach {
                 when (it) {
                     is Category -> it.preference *= value
-                    is Alternative -> it.preferences[name] = (it.preferences[name] ?: 1.0) * value
+                    is AhpAlternative -> it.preferences[name] = (it.preferences[name] ?: 1.0) * value
                 }
             }
         }
@@ -91,7 +94,7 @@ class Category(
         subNodes.forEachIndexed { i, c ->
             when (c) {
                 is Category -> c.preference = normalized[i]
-                is Alternative -> c.preferences[name] = normalized[i]
+                is AhpAlternative -> c.preferences[name] = normalized[i]
             }
         }
     }

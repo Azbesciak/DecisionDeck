@@ -15,9 +15,9 @@ class TopsisTest {
                 Criterion("TravelCost", 6.0, CriteriaType.COST),
                 Criterion("Accommodation", 8.0, CriteriaType.COST))
         val alternatives = listOf(
-                Alternative("Hogwarts", criteria.zip(listOf(9, 7, 6, 7)).toMap()),
-                Alternative("Hogsmeade", criteria.zip(listOf(8, 7, 9, 6)).toMap()),
-                Alternative("Azkaban", criteria.zip(listOf(7, 8, 6, 6)).toMap())
+                TopsisAlternative("Hogwarts", criteria.zip(listOf(9.0, 7.0, 6.0, 7.0)).toMap()),
+                TopsisAlternative("Hogsmeade", criteria.zip(listOf(8.0, 7.0, 9.0, 6.0)).toMap()),
+                TopsisAlternative("Azkaban", criteria.zip(listOf(7.0, 8.0, 6.0, 6.0)).toMap())
         )
         val topsis = Topsis(alternatives, criteria)
         val result = topsis.calculate()
