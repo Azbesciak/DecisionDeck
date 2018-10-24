@@ -1,0 +1,1 @@
+package pl.poznan.put.topsisimport pl.poznan.put.xmcda.XmcdaLoaderBaseobject TOPSISCLI {    @Throws(Exception::class)    @JvmStatic    fun main(args: Array<String>) {        XmcdaLoaderBase.load(args, TOPSISCLI_XMCDAv2::main, TOPSISCLI_XMCDAv3::main)    }}

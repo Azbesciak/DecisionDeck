@@ -10,8 +10,8 @@ class TopsisTest {
     @Test
     fun test() {
         val criteria = listOf(
-                Criterion("entertainment", 4.0, CriteriaType.PROFIT),
-                Criterion("facilities", 2.0, CriteriaType.PROFIT),
+                Criterion("Entertainment", 4.0, CriteriaType.PROFIT),
+                Criterion("Facilities", 2.0, CriteriaType.PROFIT),
                 Criterion("TravelCost", 6.0, CriteriaType.COST),
                 Criterion("Accommodation", 8.0, CriteriaType.COST))
         val alternatives = listOf(
