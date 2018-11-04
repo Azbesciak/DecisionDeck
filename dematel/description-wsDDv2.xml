@@ -26,14 +26,14 @@
             <documentation>
                 <description>Overall influence of factors</description>
             </documentation>
-            <xmcda tag="alternativesAffectations"/>
+            <xmcda tag="alternativesValues"/>
         </output>
 
         <output id="output2" name="relation" displayName="relation (D-R)">
             <documentation>
                 <description>Causal character of factors</description>
             </documentation>
-            <xmcda tag="alternativesAffectations"/>
+            <xmcda tag="alternativesValues"/>
         </output>
 
         <output id="output3" name="messages" displayName="messages">
