@@ -1,3 +1,17 @@
+displayDematelPlot <- function(x, y, df) {
+    plot(x, y,
+        type = 'p',
+        main = "DEMATEL",
+        sub = "The cause and effect diagram",
+        xlab = "R + C",
+        ylab = "R - C",
+        cex = 0.5
+    )
+    text(x, y, df$Criterion, pos=4, col="red")
+    abline(h = mean(y), v = mean(x))
+    View(df)
+}
+
 dematel = function(Z) {
     if (missing(Z))
     stop("usage:
@@ -32,17 +46,12 @@ dematel = function(Z) {
 
     x = R + C; y = R - C
     # step 5
-    alpha = mean(T) # filter...?
+    alpha = mean(T) # TODO filter...?
     Criterion = colnames(D)
     df = data.frame(Criterion, R, C, x, y)
-    df$Criterion = paste("", Criterion, sep = "    ")
     colnames(df) <- c("Criterion", "R", "C", "R + C", "R - C")
-    plot(x, y, type = 'p',
-    main = "DEMATEL", sub = "The cause and effect diagram", xlab = "R + C", ylab = "R - C", cex = 0.5)
-    abline(h = mean(y), v = mean(x))
-    text(x, y, df$Criterion)
-    View(df)
-    return(df)
+    displayDematelPlot(x, y, df)
+    df
 }
 #
 # Z = as.matrix(read.csv("myfile.csv", header = TRUE, sep = ",", row.names = 1))

@@ -1,5 +1,5 @@
 # usage:
-# R --slave --vanilla --file=weightedSumCLI_XMCDAv2.R --args "[inDirectory]" "[outDirectory]"
+# R --slave --vanilla --file=dematelCLI_XMCDAv2.R --args "[inDirectory]" "[outDirectory]"
 
 rm(list = ls())
 
@@ -34,7 +34,7 @@ if (! is.null(script.wd)) setwd(script.wd)
 
 inDirectory <- commandArgs(trailingOnly = TRUE)[1]
 outDirectory <- commandArgs(trailingOnly = TRUE)[2]
-
+dir.create(file.path(outDirectory), showWarnings = FALSE)
 messagesFile <- "messages.xml"
 xmcdaMessages <- .jnew("org/xmcda/XMCDA")
 xmcdaDatav2 <- .jnew("org/xmcda/v2/XMCDA")
@@ -58,7 +58,7 @@ stopIfNull <- function(value, message) {
 }
 
 loadXMCDAv2(xmcdaDatav2, inDirectory, "alternatives.xml", mandatory = TRUE, xmcdaMessages, "alternatives")
-loadXMCDAv2(xmcdaDatav2, inDirectory, "alternativesMatrix.xml", mandatory = TRUE, xmcdaMessages, "alternativesMatrix")
+loadXMCDAv2(xmcdaDatav2, inDirectory, "alternatives_influence.xml", mandatory = TRUE, xmcdaMessages, "alternativesComparisons")
 # if we have problem with the inputs, it is time to stop
 validate(paste("An error has occured while loading the input files. For further details, see ", messagesFile, sep = ""))
 converter <- .jnew("org/xmcda/converters/v2_v3/XMCDAConverter")
@@ -69,10 +69,10 @@ xmcdaData <- handleException(
 	humanMessage = "Could not convert inputs to XMCDA v3, reason: "
 )
 # @formatter:on
-validate(paste("An error has occured while converting the inputs to XMCDA v3. For further details, see ", messagesFile, sep = ""))
+validate(paste("An error has occured while converting the inputs to XMCDA v3. For further details, see", messagesFile))
 inputs <- checkAndExtractInputs(xmcdaData)
 
-validate(paste("An error has occured while checking and extracting the inputs. For further details, see ", messagesFile, sep = ""))
+validate(paste("An error has occured while checking and extracting the inputs. For further details, see", messagesFile))
 # @formatter:off
 results <- handleException(
 	function() return(dematel(inputs)),
@@ -83,7 +83,7 @@ results <- handleException(
 stopIfNull(results, "Calculation failed.")
 
 xResults = convert(results, xmcdaMessages)
-stopIfNull(xResults, "Could not convert weightedSum results into XMCDA")
+stopIfNull(xResults, "Could not convert dematel results into XMCDA")
 for (i in 1 : length(xResults)) {
 	outputFilename = paste(outDirectory, paste(names(xResults)[i], ".xml", sep = ""), sep = "/")
 	results_v2 <- .jnew("org/xmcda/v2/XMCDA")
