@@ -1,34 +1,62 @@
 <?xml version="1.0" ?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-3.0.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2017/XMCDA-3.0.2 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
 
-<alternativesAssignments>
-		<alternativeAssignment>
+<alternativesValues>
+		<alternativeValue>
 			<alternativeID>a01</alternativeID>
-			<categoryID>14.714009560533</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>14.714009560533</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a02</alternativeID>
-			<categoryID>16.2292777916316</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>16.2292777916316</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a03</alternativeID>
-			<categoryID>17.3201924102831</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>17.3201924102831</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a04</alternativeID>
-			<categoryID>16.1625940463382</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>16.1625940463382</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a05</alternativeID>
-			<categoryID>16.9380301600198</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>16.9380301600198</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a06</alternativeID>
-			<categoryID>16.9480974566497</categoryID>
-		</alternativeAssignment>
-		<alternativeAssignment>
+			<values>
+				<value>
+					<real>16.9480974566497</real>
+				</value>
+			</values>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>a07</alternativeID>
-			<categoryID>13.6123593216416</categoryID>
-		</alternativeAssignment>
-	</alternativesAssignments>
+			<values>
+				<value>
+					<real>13.6123593216416</real>
+				</value>
+			</values>
+		</alternativeValue>
+	</alternativesValues>
 </xmcda:XMCDA>
