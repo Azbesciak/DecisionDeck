@@ -79,7 +79,6 @@ if (is.null(xResults)){
 }
 # and last, write them onto the disk
 for (i in 1:length(xResults)){
-  print(xmcda_v3_tag(names(xResults)[i]))
   outputFilename = paste(outDirectory, paste(names(xResults)[i],".xml",sep=""), sep="/")
   tmp <- handleException(
     function() writeXMCDA(xResults[[i]], outputFilename, xmcda_v3_tag(names(xResults)[i])),
