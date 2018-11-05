@@ -42,7 +42,7 @@ vikor = function(performanceTable, weights, criteriaTypes, v) {
     Q = v * (S - min(S)) / (max(S) - min(S)) + (1 - v) * (R - min(R)) / (max(R) - min(R))
 
     #4. Checking if Q is valid
-    isQValid = FALSE #Q != "NaN" && Q != "Inf"
+    isQValid = Q != "NaN" && Q != "Inf"
     QRanking = if (isQValid) {
         rank(Q, ties.method = "first")
     } else {
