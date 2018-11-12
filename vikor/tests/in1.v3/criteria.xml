@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-3.0.2"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2017/XMCDA-3.0.2
+              http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
+    <criteria>
+        <criterion id="c01" name="Price"/>
+        <criterion id="c02" name="Power"/>
+        <criterion id="c03" name="0-100"/>
+        <criterion id="c04" name="Consumption"/>
+        <criterion id="c05" name="CO2"/>
+    </criteria>
+</xmcda:XMCDA>

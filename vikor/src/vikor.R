@@ -77,12 +77,12 @@ vikor = function(performanceTable, weights, criteriaTypes, v) {
         compromiseSolutions = compromiseSolution
     )
 }
-
-d = matrix(c(1, 2, 5, 0, 3000, 3750, 4500, 3500), nrow = 4, ncol = 2)
-colnames(d) = c('time', 'gain')
-rownames(d) = c('seller', 'manager', 'developer', 'Chuck Norris')
-w = c(0.5, 0.5)
-cb = c('min', 'max')
-v = 0.5
-r = vikor(d, w, cb, v)
-print(r)
+#
+# d = matrix(c(1, 2, 5, 0, 3000, 3750, 4500, 3500), nrow = 4, ncol = 2)
+# colnames(d) = c('time', 'gain')
+# rownames(d) = c('seller', 'manager', 'developer', 'Chuck Norris')
+# w = c(0.5, 0.5)
+# cb = c('min', 'max')
+# v = 0.5
+# r = vikor(d, w, cb, v)
+# print(r)
