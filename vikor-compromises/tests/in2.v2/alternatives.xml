@@ -1,0 +1,19 @@
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <projectReference>
+        <comment>
+            Example from
+            https://www.slideshare.net/pranavmishra22/topsis-a-multicriteria-decision-making-approach,
+            same as in unit tests
+        </comment>
+    </projectReference>
+
+    <alternatives>
+        <alternative id="hogw" name="Hogwarts"/>
+        <alternative id="hogs" name="Hogsmeade"/>
+        <alternative id="azk" name="Azkaban"/>
+    </alternatives>
+
+</xmcda:XMCDA>
