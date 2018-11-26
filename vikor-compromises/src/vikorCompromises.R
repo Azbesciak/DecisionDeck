@@ -38,10 +38,10 @@ vikorCompromises = function(S, R, v) {
         DQ = 1 / (length(R) - 1)
         isAcceptableAdvantage = Q[[sortedQRank[2]]] - Q[[sortedQRank[1]]] >= DQ
         isAcceptableStability = sortedQRank[1] == sortedSRank[1] || sortedQRank[1] == sortedRRank[1]
-        if (!isAcceptableStability) {
-            Filter(function(X) X - Q[sortedQRank[1]] < DQ, Q)
-        } else if (!isAcceptableAdvantage) {
+        if (!isAcceptableStability && isAcceptableAdvantage) {
             sortedQRank[1:2]
+        } else if (!isAcceptableAdvantage) {
+            names(Filter(function(X) X - Q[sortedQRank[1]] < DQ, Q))
         } else {
             sortedQRank[1]
         }
