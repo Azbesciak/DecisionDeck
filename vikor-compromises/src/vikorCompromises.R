@@ -3,7 +3,7 @@ vikorCompromises = function(S, R, v) {
         stop("usage:
             S - weighted and normalized Manhattan distance ranking by minimum value.
             R - weighted and normalized Chebyshev distance ranking by minimum value
-            v - veto threshold, value in range [0,1].
+            v - weight of the strategy of S and R [0,1].
         ")
     if (is.null(S))
         stop("'S' is null")
