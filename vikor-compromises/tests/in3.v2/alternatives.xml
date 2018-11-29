@@ -1,0 +1,18 @@
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <projectReference>
+        <comment>Example based on https://pdfs.semanticscholar.org/c268/87dbed0e06b48748236e53c654029f321d0e.pdf</comment>
+    </projectReference>
+
+    <alternatives>
+        <alternative id="a1" name="Candidate 1" />
+        <alternative id="a2" name="Candidate 2" />
+        <alternative id="a3" name="Candidate 3" />
+        <alternative id="a4" name="Candidate 4" />
+        <alternative id="a5" name="Candidate 5" />
+        <alternative id="a6" name="Candidate 6" />
+    </alternatives>
+
+</xmcda:XMCDA>

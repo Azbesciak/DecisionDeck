@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-3.0.2"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2017/XMCDA-3.0.2
+              http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
+    <criteria>
+        <criterion id="c1" name="Age"/>
+        <criterion id="c2" name="I work experience"/>
+        <criterion id="c3" name="Company experience"/>
+        <criterion id="c4" name="Exams done by HR Dept."/>
+        <criterion id="c5" name="Education Background"/>
+    </criteria>
+</xmcda:XMCDA>
