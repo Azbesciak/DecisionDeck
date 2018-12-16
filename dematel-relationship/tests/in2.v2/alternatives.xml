@@ -1,0 +1,14 @@
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <alternatives>
+        <alternative id="a" name="Audi A3"/>
+        <alternative id="b" name="Audi A4"/>
+        <alternative id="c" name="BMW 118"/>
+        <alternative id="d" name="BMW 320"/>
+        <alternative id="e" name="Volvo C30"/>
+        <alternative id="f" name="Volvo S40"/>
+        <alternative id="g" name="Volvo S60"/>
+    </alternatives>
+</xmcda:XMCDA>
