@@ -3,6 +3,8 @@ package pl.poznan.put.topsis
 import pl.poznan.put.xmcda.ranking.Alternative
 import pl.poznan.put.xmcda.ranking.RankEntry
 import pl.poznan.put.xmcda.ranking.Ranking
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 enum class CriteriaType {
     COST, PROFIT
@@ -34,9 +36,9 @@ class Topsis(private val alternatives: List<TopsisAlternative>, private val crit
     private val weights: DoubleArray = criteria.map { it.weight }.toDoubleArray()
     private val decisionMatrix: Array<DoubleArray> = alternatives.map { alt ->
         criteria.map { cr ->
-            val value = alt.criteriaValues[cr] ?: throw NullPointerException(
-                    "value for criterion ${cr.name} not found for alternative ${alt.name}"
-            )
+            val value = requireNotNull(alt.criteriaValues[cr]) {
+                "value for criterion ${cr.name} not found for alternative ${alt.name}"
+            }
             if (cr.type == CriteriaType.COST) -value
             else value
         }.toDoubleArray()
@@ -56,16 +58,15 @@ class Topsis(private val alternatives: List<TopsisAlternative>, private val crit
     }
 
     private fun calculateNormalizedDecisionMatrix(): Array<DoubleArray> {
-        val sumPowSqrt = DoubleArray(criteriaNo)
         val normDecMat = Array(alternativeNo) { DoubleArray(criteriaNo) }
-        for (col in 0 until criteriaNo) {
+        (0 until criteriaNo).forEach { col ->
             var sumPow = 0.0
-            for (row in 0 until alternativeNo) {
-                sumPow += Math.pow(decisionMatrix[row][col], 2.0)
+            (0 until alternativeNo).forEach { row ->
+                sumPow += decisionMatrix[row][col].pow(2)
             }
-            sumPowSqrt[col] = Math.sqrt(sumPow)
-            for (row in decisionMatrix.indices) {
-                normDecMat[row][col] = decisionMatrix[row][col] / sumPowSqrt[col]
+            val sumPowSqrt = sqrt(sumPow)
+            (0 until alternativeNo).forEach { row ->
+                normDecMat[row][col] = decisionMatrix[row][col] / sumPowSqrt
             }
         }
         return normDecMat
@@ -73,8 +74,8 @@ class Topsis(private val alternatives: List<TopsisAlternative>, private val crit
 
     private fun calculateWeightedNormalizedDecisionMatrix(normalizedDecisionMatrix: Array<DoubleArray>): Array<DoubleArray> {
         val weightedNormalizedDecisionMatrix = Array(alternativeNo) { DoubleArray(criteriaNo) }
-        for (col in 0 until criteriaNo) {
-            for (row in 0 until alternativeNo) {
+        (0 until criteriaNo).forEach { col ->
+            (0 until alternativeNo).forEach { row ->
                 weightedNormalizedDecisionMatrix[row][col] = normalizedDecisionMatrix[row][col] * weights[col]
             }
         }
