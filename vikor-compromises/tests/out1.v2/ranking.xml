@@ -3,51 +3,39 @@
     <alternativesValues>
         <alternativeValue>
             <alternativeID>a03</alternativeID>
-            <values>
-                <value>
-                    <real>1.0</real>
-                </value>
-            </values>
+            <value>
+                <real>1.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a05</alternativeID>
-            <values>
-                <value>
-                    <real>2.0</real>
-                </value>
-            </values>
+            <value>
+                <real>2.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a06</alternativeID>
-            <values>
-                <value>
-                    <real>3.0</real>
-                </value>
-            </values>
+            <value>
+                <real>3.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a01</alternativeID>
-            <values>
-                <value>
-                    <real>4.0</real>
-                </value>
-            </values>
+            <value>
+                <real>4.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a02</alternativeID>
-            <values>
-                <value>
-                    <real>5.0</real>
-                </value>
-            </values>
+            <value>
+                <real>5.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a04</alternativeID>
-            <values>
-                <value>
-                    <real>6.0</real>
-                </value>
-            </values>
+            <value>
+                <real>6.0</real>
+            </value>
         </alternativeValue>
     </alternativesValues>
 </xmcda:XMCDA>

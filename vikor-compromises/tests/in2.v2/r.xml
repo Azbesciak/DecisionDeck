@@ -3,27 +3,21 @@
     <alternativesValues>
         <alternativeValue>
             <alternativeID>azk</alternativeID>
-            <values>
-                <value>
-                    <real>0.2</real>
-                </value>
-            </values>
+            <value>
+                <real>0.2</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>hogs</alternativeID>
-            <values>
-                <value>
-                    <real>0.3</real>
-                </value>
-            </values>
+            <value>
+                <real>0.3</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>hogw</alternativeID>
-            <values>
-                <value>
-                    <real>0.4</real>
-                </value>
-            </values>
+            <value>
+                <real>0.4</real>
+            </value>
         </alternativeValue>
     </alternativesValues>
 </xmcda:XMCDA>

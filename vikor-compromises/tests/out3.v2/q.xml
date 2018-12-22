@@ -3,51 +3,39 @@
     <alternativesValues>
         <alternativeValue>
             <alternativeID>a2</alternativeID>
-            <values>
-                <value>
-                    <real>0.0</real>
-                </value>
-            </values>
+            <value>
+                <real>0.0</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a3</alternativeID>
-            <values>
-                <value>
-                    <real>0.146716911501912</real>
-                </value>
-            </values>
+            <value>
+                <real>0.146716911501912</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a5</alternativeID>
-            <values>
-                <value>
-                    <real>0.63565110659918</real>
-                </value>
-            </values>
+            <value>
+                <real>0.63565110659918</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a6</alternativeID>
-            <values>
-                <value>
-                    <real>0.749151252578504</real>
-                </value>
-            </values>
+            <value>
+                <real>0.749151252578504</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a4</alternativeID>
-            <values>
-                <value>
-                    <real>0.76317551809721</real>
-                </value>
-            </values>
+            <value>
+                <real>0.76317551809721</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a1</alternativeID>
-            <values>
-                <value>
-                    <real>1.0</real>
-                </value>
-            </values>
+            <value>
+                <real>1.0</real>
+            </value>
         </alternativeValue>
     </alternativesValues>
 </xmcda:XMCDA>

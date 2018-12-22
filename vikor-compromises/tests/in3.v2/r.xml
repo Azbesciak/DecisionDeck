@@ -3,51 +3,39 @@
     <alternativesValues>
         <alternativeValue>
             <alternativeID>a2</alternativeID>
-            <values>
-                <value>
-                    <real>0.125</real>
-                </value>
-            </values>
+            <value>
+                <real>0.125</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a3</alternativeID>
-            <values>
-                <value>
-                    <real>0.166666666666667</real>
-                </value>
-            </values>
+            <value>
+                <real>0.166666666666667</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a5</alternativeID>
-            <values>
-                <value>
-                    <real>0.209090909090909</real>
-                </value>
-            </values>
+            <value>
+                <real>0.209090909090909</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a6</alternativeID>
-            <values>
-                <value>
-                    <real>0.25</real>
-                </value>
-            </values>
+            <value>
+                <real>0.25</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a4</alternativeID>
-            <values>
-                <value>
-                    <real>0.254545454545455</real>
-                </value>
-            </values>
+            <value>
+                <real>0.254545454545455</real>
+            </value>
         </alternativeValue>
         <alternativeValue>
             <alternativeID>a1</alternativeID>
-            <values>
-                <value>
-                    <real>0.3</real>
-                </value>
-            </values>
+            <value>
+                <real>0.3</real>
+            </value>
         </alternativeValue>
     </alternativesValues>
 </xmcda:XMCDA>
