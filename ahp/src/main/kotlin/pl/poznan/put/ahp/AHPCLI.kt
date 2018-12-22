@@ -1,0 +1,1 @@
+package pl.poznan.put.ahpimport pl.poznan.put.xmcda.XmcdaLoaderBaseobject AHPCLI {    @Throws(Exception::class)    @JvmStatic    fun main(args: Array<String>) {        XmcdaLoaderBase.load(args, AHPCLI_XMCDAv2::main, AHPCLI_XMCDAv2::main)    }}

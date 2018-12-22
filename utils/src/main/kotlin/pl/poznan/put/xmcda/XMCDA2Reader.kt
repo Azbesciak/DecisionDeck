@@ -1,7 +1,6 @@
 package pl.poznan.put.xmcda
 
 import org.xmcda.v2.XMCDA
-import pl.poznan.put.xmcda.Utils.loadXMCDAv2
 
 class XMCDA2Reader(
         directoryPath: String,

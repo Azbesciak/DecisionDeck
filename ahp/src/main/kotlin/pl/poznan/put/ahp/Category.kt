@@ -8,20 +8,20 @@ import pl.poznan.put.xmcda.ranking.Ranking
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class AhpRanking private constructor(
+internal class AhpRanking private constructor(
         private val ranking: List<AhpRankEntry>
 ) : Ranking<AhpAlternative>, List<RankEntry<AhpAlternative>> by ranking {
     constructor(alternatives: Iterable<AhpAlternative>) :
             this(alternatives.map { AhpRankEntry(it, it.total()) }.sortedByDescending { it.value })
 }
 
-data class AhpRankEntry(
+internal data class AhpRankEntry(
         override val alternative: AhpAlternative,
         override val value: Double
 ) : RankEntry<AhpAlternative>
 
-sealed class Node(val name: String)
-class AhpAlternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name), Alternative {
+internal sealed class Node(val name: String)
+internal class AhpAlternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name), Alternative {
     companion object {
         @JvmStatic
         fun List<AhpAlternative>.ranking() = AhpRanking(this)
@@ -33,7 +33,7 @@ class AhpAlternative(name: String, val preferences: MutableMap<String, Double> =
     override fun toString() = "AhpAlternative(name=$name, preferences=$preferences)"
 }
 
-class Category(
+internal class Category(
         name: String,
         val subNodes: List<Node>,
         val preferenceMat: List<List<Double>>

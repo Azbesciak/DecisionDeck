@@ -1,6 +1,5 @@
 package pl.poznan.put.xmcda
 
-import pl.poznan.put.xmcda.Utils.*
 
 object XmcdaLoaderBase {
     inline fun load(args: Array<String>,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA
+        xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0
+        http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+    <criteriaMatrix name="preference" id="preference">
+        <row>
+            <criterionID>preference</criterionID>
+            <column>
+                <criterionID>preference</criterionID>
+                <values>
+                    <value>
+                        <integer>1</integer>
+                    </value>
+                </values>
+            </column>
+        </row>
+    </criteriaMatrix>
+</xmcda:XMCDA>

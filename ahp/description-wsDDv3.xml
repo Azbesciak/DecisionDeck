@@ -44,7 +44,7 @@
             <documentation>
                 <description>Result ranking of alternatives</description>
             </documentation>
-            <xmcda tag="alternativesValues"/>
+            <xmcda tag="alternativesAssignments"/>
         </output>
 
         <output id="output2" name="messages" displayName="messages">

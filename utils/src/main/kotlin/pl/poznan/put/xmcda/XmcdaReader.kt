@@ -2,7 +2,6 @@ package pl.poznan.put.xmcda
 
 import org.xmcda.ProgramExecutionResult
 import org.xmcda.v2.XMCDA
-import pl.poznan.put.xmcda.Utils.*
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
 

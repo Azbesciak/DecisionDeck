@@ -2,7 +2,6 @@ package pl.poznan.put.xmcda
 
 import org.xmcda.converters.v2_v3.XMCDAConverter
 import org.xmcda.v2.XMCDA
-import pl.poznan.put.xmcda.Utils.loadXMCDAv2
 
 class XMCDA2to3Reader(
         directoryPath: String,
