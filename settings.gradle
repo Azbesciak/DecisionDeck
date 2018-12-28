@@ -2,3 +2,7 @@ rootProject.name = "decision-deck"
 include "ahp"
 include "utils"
 include "topsis"
+include 'topsis-ideal-solutions'
+include 'topsis-normalization-weighting'
+include 'topsis-common'
+include 'topsis-distance-ranking'

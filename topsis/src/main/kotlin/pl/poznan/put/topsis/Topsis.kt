@@ -1,17 +1,9 @@
 package pl.poznan.put.topsis
 
-import pl.poznan.put.xmcda.ranking.Alternative
 import pl.poznan.put.xmcda.ranking.RankEntry
 import pl.poznan.put.xmcda.ranking.Ranking
 import kotlin.math.pow
 import kotlin.math.sqrt
-
-enum class CriteriaType {
-    COST, PROFIT
-}
-
-data class Criterion(val name: String, val weight: Double, val type: CriteriaType)
-data class TopsisAlternative(override val name: String, val criteriaValues: Map<Criterion, Double>) : Alternative
 
 data class TopsisRankEntry(
         override val alternative: TopsisAlternative,
@@ -25,7 +17,6 @@ class TopsisRanking private constructor(
 ) : Ranking<TopsisAlternative>, List<RankEntry<TopsisAlternative>> by ranking {
     constructor(alternatives: List<TopsisAlternative>, coef: List<Double>) : this(
             alternatives.zip(coef)
-                    .asSequence()
                     .sortedByDescending { it.second }
                     .map { TopsisRankEntry(it.first, it.second) }
                     .toList()
