@@ -28,12 +28,6 @@ class TopsisTest {
     )
 
     @Test
-    fun originalTest() {
-        val actual = topsis.calculate()
-        expected validate actual
-    }
-
-    @Test
     fun integrationTest() {
         val weightedNormalized = NormalizationWeightingCalculator(alternatives, criteria).calculate()
         val idealAlternatives = IdealAlternativeCalculator(weightedNormalized.alternatives, criteria).calculate()
