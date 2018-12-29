@@ -1,7 +1,7 @@
 # MCDA algorithms for DecisionDeck project
 
 This repository contains modules for [DIVIZ](https://www.diviz.org/) and [R MCDA](https://www.decision-deck.org/r/) platform.
-It's a part of Bachelor Work.
+It's a part of Bachelor's thesis.
  
  Project contains implementation of 4 methods divided into modules:
  - [TOPSIS](https://en.wikipedia.org/wiki/TOPSIS):
