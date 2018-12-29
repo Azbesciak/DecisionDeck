@@ -34,12 +34,10 @@ import java.util.Arrays
  * for more information about the EUPL, please refer to its website:
  * https://joinup.ec.europa.eu/community/eupl/home
  */
-enum class XmcdaVersion private constructor(internal val versionFlag: String) {
+enum class XmcdaVersion(internal val versionFlag: String) {
     v2("--v2"), v3("--v3");
 
-    override fun toString(): String {
-        return "$name($versionFlag)"
-    }
+    override fun toString() = "$name($versionFlag)"
 }
 
 /**
