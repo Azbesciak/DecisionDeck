@@ -5,4 +5,4 @@ dependencies {
     implementation project(":topsis-normalization-weighting")
 }
 
-mainClassName = "pl.poznan.put.topsis.TOPSISCLI"
+mainClassName = "pl.poznan.put.topsis.TopsisCli"

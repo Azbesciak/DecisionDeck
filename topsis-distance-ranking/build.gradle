@@ -1,3 +1,4 @@
 dependencies {
     compile project(':topsis-ideal-alternatives')
 }
+mainClassName = "pl.poznan.put.topsis.DistanceRankingCalculatorCLI"
