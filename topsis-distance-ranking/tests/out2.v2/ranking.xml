@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-2.2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance">
+    <alternativesAffectations>
+        <alternativeAffectation>
+            <alternativeID>azk</alternativeID>
+            <values>
+                <value>
+                    <real>0.7399605317858702</real>
+                </value>
+            </values>
+        </alternativeAffectation>
+        <alternativeAffectation>
+            <alternativeID>hogw</alternativeID>
+            <values>
+                <value>
+                    <real>0.6776916364635758</real>
+                </value>
+            </values>
+        </alternativeAffectation>
+        <alternativeAffectation>
+            <alternativeID>hogs</alternativeID>
+            <values>
+                <value>
+                    <real>0.34392795311412244</real>
+                </value>
+            </values>
+        </alternativeAffectation>
+    </alternativesAffectations>
+</xmcda:XMCDA>

@@ -11,7 +11,7 @@ interface OutputsHandler<T> {
      * @throws NullPointerException     if outputName is null
      * @throws IllegalArgumentException if outputName is not known
      */
-    fun xmcdaV3Tag(outputName: String): String
+    infix fun xmcdaV3Tag(outputName: String): String
 
     /**
      * Returns the xmcda v2 tag for a given output
@@ -21,13 +21,13 @@ interface OutputsHandler<T> {
      * @throws NullPointerException     if outputName is null
      * @throws IllegalArgumentException if outputName is not known
      */
-    fun xmcdaV2Tag(outputName: String): String
+    infix fun xmcdaV2Tag(outputName: String): String
 
     /**
      * Converts the results of the computation step into XMCDA objects.
      *
-     * @param ranking
+     * @param values
      * @return a map with keys being xmcda objects' names and values their corresponding XMCDA object
      */
-    fun convert(ranking: T): Map<String, XMCDA>
+    infix fun convert(values: T): Map<String, XMCDA>
 }

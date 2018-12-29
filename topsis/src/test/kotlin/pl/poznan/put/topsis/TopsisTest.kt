@@ -35,9 +35,9 @@ class TopsisTest {
 
     @Test
     fun integrationTest() {
-        val weightedNormalized = WeightedNormalizedCalculator(alternatives, criteria).calculate()
+        val weightedNormalized = NormalizationWeightingCalculator(alternatives, criteria).calculate()
         val idealAlternatives = IdealAlternativeCalculator(weightedNormalized.alternatives, criteria).calculate()
-        val finalRanking = DistanceCalculator(weightedNormalized.alternatives, criteria, idealAlternatives).calculate()
+        val finalRanking = DistanceRankingCalculator(weightedNormalized.alternatives, criteria, idealAlternatives).calculate()
         expected validate finalRanking
     }
     private infix fun List<RankEntry<TopsisAlternative>>.validate(actual: List<RankEntry<TopsisAlternative>>) {

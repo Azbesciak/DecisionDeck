@@ -26,7 +26,7 @@ class WeightedNormalizedTopsisTest {
                 TopsisAlternative("Hogsmeade", criteria.zip(listOf(2.2975, 1.0999, 4.3656, 4.3636)).toMap()),
                 TopsisAlternative("Azkaban", criteria.zip(listOf(2.0103, 1.2571, 2.9104, 4.3636)).toMap())
         )
-        WeightedNormalizedCalculator(alternatives, criteria).calculate().run {
+        NormalizationWeightingCalculator(alternatives, criteria).calculate().run {
             val tests = expected.zip(this.alternatives)
                     .map { (exp, act) -> createAltsValidation(criteria, act, exp) }
                     .toTypedArray()

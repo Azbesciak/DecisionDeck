@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-2.2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance">
+    <performanceTable>
+        <alternativePerformances>
+            <alternativeID>positive</alternativeID>
+            <performance>
+                <criterionID>c01</criterionID>
+                <value>
+                    <real>169.95411604048334</real>
+                </value>
+            </performance>
+            <performance>
+                <criterionID>c02</criterionID>
+                <value>
+                    <real>14.468375130688248</real>
+                </value>
+            </performance>
+            <performance>
+                <criterionID>c03</criterionID>
+                <value>
+                    <real>0.707943854485789</real>
+                </value>
+            </performance>
+            <performance>
+                <criterionID>c04</criterionID>
+                <value>
+                    <real>0.25184901643916674</real>
+                </value>
+            </performance>
+            <performance>
+                <criterionID>c05</criterionID>
+                <value>
+                    <real>34.16790501729186</real>
+                </value>
+            </performance>
+        </alternativePerformances>
+    </performanceTable>
+</xmcda:XMCDA>

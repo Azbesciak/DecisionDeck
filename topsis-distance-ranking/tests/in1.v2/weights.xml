@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmc:XMCDA xmlns:xmc="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <projectReference>
+        <comment>Weights.</comment>
+    </projectReference>
+    <criteriaValues mcdaConcept="Weight" name="weight">
+        <criterionValue>
+            <criterionID>c01</criterionID>
+            <value>
+                <real>500.0</real>
+            </value>
+        </criterionValue>
+        <criterionValue>
+            <criterionID>c02</criterionID>
+            <value>
+                <real>30.0</real>
+            </value>
+        </criterionValue>
+        <criterionValue>
+            <criterionID>c03</criterionID>
+            <value>
+                <real>2.0</real>
+            </value>
+        </criterionValue>
+        <criterionValue>
+            <criterionID>c04</criterionID>
+            <value>
+                <real>1.0</real>
+            </value>
+        </criterionValue>
+        <criterionValue>
+            <criterionID>c05</criterionID>
+            <value>
+                <real>100.0</real>
+            </value>
+        </criterionValue>
+    </criteriaValues>
+</xmc:XMCDA>
