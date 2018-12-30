@@ -1,0 +1,22 @@
+Introduction
+------------
+This is the 'topsis-distance-ranking' program.
+
+Prerequisites
+-------------
+
+- Java 8
+- Gradle 4+ [optional - can also use attached wrapper in root]
+
+Running TOPSIS.sh
+--------------
+
+You need to update the file 'common_settings.sh' and modify it so that
+
+the following variable are set appropriately:
+
+- JAVA_HOME - path of java installation
+- GRADLE_EXE_PATH - path to gradle executable (also wrapper allowed)
+
+Jar file name and it path are gradle default - however, after preparation may be changed; this change must be reflected in 'common_settings.sh'
+

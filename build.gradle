@@ -56,3 +56,16 @@ subprojects {
         kotlinOptions.jvmTarget = "1.8"
     }
 }
+
+task genExecutables {
+    def runnableJVMProjects = [
+          "ahp", "topsis", "topsis-distance-ranking", "topsis-ideal-alternatives", "topsis-normalization-weighting"
+    ]
+    runnableJVMProjects.each { proj ->
+        copy {
+            from 'sh-templates/jvm/'
+            into proj
+            filter { line -> line.replaceAll("\\{project}", proj) }
+        }
+    }
+}
