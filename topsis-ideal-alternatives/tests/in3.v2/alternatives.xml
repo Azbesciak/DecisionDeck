@@ -1,0 +1,16 @@
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <projectReference>
+        <comment>http://www.ccse.kfupm.edu.sa/~duffuaa/download/Courses/SE391/TOPSIS.ppt</comment>
+    </projectReference>
+
+    <alternatives>
+        <alternative id="a1" name="Civic" />
+        <alternative id="a2" name="Saturn" />
+        <alternative id="a3" name="Ford" />
+        <alternative id="a4" name="Mazda" />
+    </alternatives>
+
+</xmcda:XMCDA>
