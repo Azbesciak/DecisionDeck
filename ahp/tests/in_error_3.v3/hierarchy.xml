@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+	<criteriaHierarchy>
+		<description>
+			<comment>A hierarchy of criteria</comment>
+		</description>
+		<nodes>
+			<node>
+				<criterionID>root</criterionID>
+				<nodes>
+					<node>
+						<criterionID>a</criterionID>
+					</node>
+					<node>
+						<criterionID>b</criterionID>
+					</node>
+					<node>
+						<criterionID>c</criterionID>
+					</node>
+					<node>
+						<criterionID>d</criterionID>
+					</node>
+				</nodes>
+			</node>
+		</nodes>
+	</criteriaHierarchy>
+</xmcda:XMCDA>

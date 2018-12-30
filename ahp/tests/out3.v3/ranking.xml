@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+	<alternativesAssignments>
+		<alternativeAssignment>
+			<alternativeID>y</alternativeID>
+			<values>
+				<value>
+					<real>0.4621276600080843</real>
+				</value>
+			</values>
+		</alternativeAssignment>
+		<alternativeAssignment>
+			<alternativeID>x</alternativeID>
+			<values>
+				<value>
+					<real>0.38836492276162143</real>
+				</value>
+			</values>
+		</alternativeAssignment>
+		<alternativeAssignment>
+			<alternativeID>z</alternativeID>
+			<values>
+				<value>
+					<real>0.14950741723029426</real>
+				</value>
+			</values>
+		</alternativeAssignment>
+	</alternativesAssignments>
+</xmcda:XMCDA>
