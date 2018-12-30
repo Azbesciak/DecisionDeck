@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-2.2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance">
+    <alternativesValues>
+        <alternativeValue>
+            <alternativeID>a1</alternativeID>
+            <value>
+                <real>5.46667283440869</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>a2</alternativeID>
+            <value>
+                <real>5.33802351955556</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>a3</alternativeID>
+            <value>
+                <real>4.03123441971418</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>a4</alternativeID>
+            <value>
+                <real>4.93682654987496</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>a5</alternativeID>
+            <value>
+                <real>4.53948501674484</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>a6</alternativeID>
+            <value>
+                <real>3.89145816335554</real>
+            </value>
+        </alternativeValue>
+    </alternativesValues>
+</xmcda:XMCDA>
