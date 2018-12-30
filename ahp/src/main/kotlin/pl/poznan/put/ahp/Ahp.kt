@@ -63,6 +63,17 @@ internal class Category(
             }
         }
 
+    fun checkValidity(): List<InvalidNode> {
+        val result = if (validity) emptyList() else listOf(InvalidNode(name, cr))
+        val subNodesResult = subNodes.flatMap {
+            when (it) {
+                is Category -> it.checkValidity()
+                else -> emptyList()
+            }
+        }
+        return result + subNodesResult
+    }
+
     private fun validate() {
         require(subNodes.size == preferenceMat.size) { "categories number is not equal to preferences n" }
         require(subNodes.size < ri.size) { "number of categories must be less or equal to ${ri.size - 1}" }
@@ -112,3 +123,6 @@ internal class Category(
     override fun toString() =
             "Category(name=$name, subNodes=$subNodes, preferenceMat=$preferenceMat, preference=$preference, cr=$cr, ci=$ci)"
 }
+
+internal data class InvalidNode(val name: String, val cr: BigDecimal)
+internal data class AhpResult(val ranking: AhpRanking, val invalidNode: List<InvalidNode>)

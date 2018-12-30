@@ -21,6 +21,11 @@ internal val v3files = arrayOf(
 
 internal val ahpComputationManager = ComputationManager(
         AhpInputsHandler, AhpOutputsHandler
-) { this }
+) {
+    require(invalidNode.isEmpty()) {
+        "Found invalid nodes (cr should be below 0.1): ${invalidNode.joinToString(", ") { "${it.name} - ${it.cr}" }}}"
+    }
+    ranking
+}
 
 typealias CrytId = String
