@@ -38,7 +38,7 @@ abstract class XMCDAv3Client<Input, Output>{
             try {
                 manager.checkAndExtractInputs(xmcda)
             } catch (t: Throwable) {
-                writeErrorMessageAndExit(t, "Could not parse inputs: ", prgExecResults, executionResult)
+                writeErrorMessageAndExit(t, "Could not parse inputs to program parameters, reason: ", prgExecResults, executionResult)
             }
 
     private fun calculateResults(inputs: Input, executionResult: ProgramExecutionResult, prgExecResults: File) =

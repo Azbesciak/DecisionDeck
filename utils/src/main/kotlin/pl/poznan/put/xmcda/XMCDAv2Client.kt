@@ -62,6 +62,7 @@ abstract class XMCDAv2Client<Input, Output> {
         return try {
             manager.checkAndExtractInputs(xmcda)
         } catch (t: Throwable) {
+            executionResult.addError(getMessage("Could not parse inputs to program parameters, reason: ", t))
             writeProgramExecutionResultsAndExit(prgExecResultsFile, executionResult, XmcdaVersion.v2)
             exitProcess(-1)
         }
