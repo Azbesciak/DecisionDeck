@@ -32,3 +32,11 @@ hs_err_pid*
 out
 gen
 .Rproj.user
+
+# Gradle
+*/build/
+.gradle
+
+# misc.
+*/tests_tmp/
+.Rhistory
