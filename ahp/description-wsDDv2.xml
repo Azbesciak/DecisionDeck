@@ -8,18 +8,17 @@
     </documentation>
     <parameters>
 
+        <input id="input2" name="criteria" displayName="criteria" isoptional="0">
+            <documentation>
+                <description>Criteria for comparison on all hierarchy level - must include root criterion also</description>
+            </documentation>
+            <xmcda tag="criteria"/>
+        </input>
         <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
             <documentation>
                 <description>Definitions of alternatives</description>
             </documentation>
             <xmcda tag="alternatives"/>
-        </input>
-
-        <input id="input2" name="criteria" displayName="criteria " isoptional="0">
-            <documentation>
-                <description>Criteria for comparision on all hierarchy level - must include root criterion also</description>
-            </documentation>
-            <xmcda tag="criteria"/>
         </input>
         <input id="input3" name="hierarchy" displayName="hierarchy of criteria" isoptional="0">
             <documentation>
