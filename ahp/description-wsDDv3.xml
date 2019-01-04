@@ -31,13 +31,13 @@
             <documentation>
                 <description>Performance between criteria, allowed only one side (A->B or B->A, not both)</description>
             </documentation>
-            <xmcda tag="criteriaComparisons"/>
+            <xmcda tag="criteriaMatrix"/>
         </input>
         <input id="input5" name="preference" displayName="preference of alternatives" isoptional="0">
             <documentation>
                 <description>Performance between final criteria for each alternative, allowed only one side (A->B or B->A, not both)</description>
             </documentation>
-            <xmcda tag="alternativesComparisons"/>
+            <xmcda tag="alternativesMatrix"/>
         </input>
 
         <output id="output1" name="ranking" displayName="final ranking">
