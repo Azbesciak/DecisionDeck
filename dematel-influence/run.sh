@@ -16,11 +16,11 @@ fi
 if [ ! $# == 3 ]; then
   echo "Usage: $0 [--v2|--v3] input_dir output_dir" >&2
   exit 3
-elif [ $1 = "--v3" ]; then
-  R --slave --vanilla --file=src/dematelCLI_XMCDAv3.R --args $2 $3
+elif [ "$1" = "--v3" ]; then
+  R --slave --vanilla --file=src/dematelCLI_XMCDAv3.R --args "$2" "$3"
   ret=$?
-elif [ $1 = "--v2" ]; then
-  R --slave --vanilla --file=src/dematelCLI_XMCDAv2.R --args $2 $3
+elif [ "$1" = "--v2" ]; then
+  R --slave --vanilla --file=src/dematelCLI_XMCDAv2.R --args "$2" "$3"
   ret=$?
 else
   echo "Usage: $0 [--v2|--v3] input_dir output_dir" >&2
