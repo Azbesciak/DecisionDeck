@@ -17,6 +17,14 @@ It's a part of Bachelor's thesis.
    - get relationships between alternatives/factors with optional *alpha* threshold - [`dematel-relationship`](https://github.com/Azbesciak/DecisionDeck/tree/master/dematel-relationship)
    
 ### How to use
+Requirements:
+- Java 8 (JVM projects works also with 8+ due to connected XML dependencies in `build.gradle`; however, due to XMCDA lack of those jars on R visible Java classpath, this only works with JDK 8)
+- R - at least 3.5 (required only when using R modules)
+- optionally Gradle 4.10+; however, it is recommended to use embedded wrapper.
+
+Additionaly R modules requires installed XMCDA package - compatible jar is attached with project in `/libs` directory.
+Also, `dematel-influence` requires installed [`purrr`](https://purrr.tidyverse.org/) package.
+
  JVM connected (TOPSIS and AHP) projects are build under gradle. All of them can be employed with installed `gradle` or embedded `gradlew` usage - in the second case after type CMD command it will download wrapper (about 100 MB - just once).
  To create executable jar you need to type:
  ```cmd
