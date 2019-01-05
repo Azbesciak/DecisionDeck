@@ -1,6 +1,6 @@
 # MCDA algorithms for DecisionDeck project
 
-This repository contains modules for [DIVIZ](https://www.diviz.org/) and [R MCDA](https://www.decision-deck.org/r/) platform.
+This repository contains modules for [DIVIZ](https://www.diviz.org/) and [R MCDA](https://www.decision-deck.org/r/) platforms.
 It's a part of Bachelor's thesis.
  
  Project contains implementation of 4 methods divided into modules:
