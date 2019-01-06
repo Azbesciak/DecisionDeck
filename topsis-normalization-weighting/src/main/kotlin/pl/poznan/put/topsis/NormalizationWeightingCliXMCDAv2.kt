@@ -4,7 +4,7 @@ import pl.poznan.put.xmcda.XMCDAv2Client
 
 
 object NormalizationWeightingCliXMCDAv2 : XMCDAv2Client<TopsisInputs, WeightedNormalizedAlternatives>() {
-    override val files = v2Base
+    override val files = v2Base + weightsFile
     override val manager = weightedNormComputationManager
 
     @JvmStatic
