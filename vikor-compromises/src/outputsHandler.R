@@ -70,6 +70,6 @@ convert <- function(results, programExecutionResult) {
   if (is.null(q) || is.null(ranking) || is.null(compromises)) {
     NULL
   } else{
-    list(q = q, ranking = ranking, compromiseSolution = compromises)
+    list(q = q, ranking = ranking, compromise_solution = compromises)
   }
 }

@@ -41,7 +41,7 @@ sFile <- "s.xml"
 rFile <- "r.xml"
 qFile <- "q.xml"
 rankingFile <- "ranking.xml"
-compromiseSolutionFile <- "compromiseSolution.xml"
+compromiseSolutionFile <- "compromise_solution.xml"
 messagesFile <- "messages.xml"
 # the Java xmcda object for the output messages
 xmcdaMessages<-.jnew("org/xmcda/XMCDA")

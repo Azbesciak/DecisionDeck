@@ -48,7 +48,7 @@
             <xmcda tag="alternativesValues"/>
         </output>
 
-        <output id="output3" name="compromiseSolution" displayName="Compromised solution">
+        <output id="output3" name="compromise_solution" displayName="Compromised solution">
             <documentation>
                 <description>Compromised solution</description>
             </documentation>
