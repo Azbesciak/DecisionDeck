@@ -50,7 +50,7 @@
             <documentation>
                 <description>Result ranking of alternatives</description>
             </documentation>
-            <xmcda tag="alternativeAffections"/>
+            <xmcda tag="alternativesAffectations"/>
         </output>
 
         <output id="output2" name="messages" displayName="messages">
