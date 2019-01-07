@@ -40,7 +40,18 @@
             <documentation>
                 <description>Threshold of minor relations elimination - required value with ID 'alpha'</description>
             </documentation>
-            <xmcda tag="methodParameters"/>
+            <xmcda tag="methodParameters"><![CDATA[
+    <methodParameters>
+        <parameter id="alpha">
+            <value>
+              <real>%1</real>
+            </value>
+        </parameter>
+    </methodParameters>
+]]></xmcda>
+            <gui status="preferGUI">
+                <entry id="%1" type="float" displayName="alpha" />
+            </gui>
         </input>
 
         <output id="output3" name="relationship" displayName="alternatives influence relationships">
