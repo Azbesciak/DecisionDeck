@@ -33,13 +33,13 @@
             </documentation>
             <xmcda tag="criteriaValues"/>
         </input>
-        <input id="input5" name="ideal_positive" displayName="Ideal positive alternative" isoptional="0">
+        <input id="input6" name="ideal_positive" displayName="Ideal positive alternative" isoptional="0">
             <documentation>
                 <description>Performance of positive ideal alternative</description>
             </documentation>
             <xmcda tag="performanceTable"/>
         </input>
-        <input id="input6" name="ideal_negative" displayName="Ideal negative alternative" isoptional="0">
+        <input id="input7" name="ideal_negative" displayName="Ideal negative alternative" isoptional="0">
             <documentation>
                 <description>Performance of negative ideal alternative</description>
             </documentation>
