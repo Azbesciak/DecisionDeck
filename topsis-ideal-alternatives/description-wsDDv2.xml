@@ -26,13 +26,6 @@
             </documentation>
             <xmcda tag="performanceTable"/>
         </input>
-        <input id="input4" name="weights" displayName="criteria weights" isoptional="0">
-            <documentation>
-                <description>Weights for criteria</description>
-            </documentation>
-            <xmcda tag="criteriaValues"/>
-        </input>
-
         <output id="output1" name="ideal_positive" displayName="Ideal positive alternative">
             <documentation>
                 <description>Performance of positive ideal alternative</description>
