@@ -43,6 +43,13 @@
             <xmcda tag="methodParameters"/>
         </input>
 
+        <output id="output3" name="relationship" displayName="alternatives influence relationships">
+            <documentation>
+                <description>Directed influences between alternatives with threshold applied</description>
+            </documentation>
+            <xmcda tag="alternativesComparisons"/>
+        </output>
+
         <output id="output1" name="prominence" displayName="prominence (D+R)">
             <documentation>
                 <description>Overall influence of factors</description>
@@ -55,12 +62,6 @@
                 <description>Causal character of factors</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
-        </output>
-        <output id="output3" name="relationship" displayName="alternatives influence relationships">
-            <documentation>
-                <description>Directed influences between alternatives with threshold applied</description>
-            </documentation>
-            <xmcda tag="alternativesComparisons"/>
         </output>
 
         <output id="output4" name="messages" displayName="messages">
