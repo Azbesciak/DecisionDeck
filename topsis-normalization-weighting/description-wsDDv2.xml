@@ -7,17 +7,17 @@
         <url>https://github.com/Azbesciak/DecisionDeck</url>
     </documentation>
     <parameters>
-        <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
-            <documentation>
-                <description>Definitions of alternatives.</description>
-            </documentation>
-            <xmcda tag="alternatives"/>
-        </input>
         <input id="input2" name="criteria" displayName="matrix of alternatives influence" isoptional="0">
             <documentation>
                 <description>Criteria of comparision</description>
             </documentation>
             <xmcda tag="criteria"/>
+        </input>
+        <input id="input1" name="alternatives" displayName="alternatives" isoptional="0">
+            <documentation>
+                <description>Definitions of alternatives.</description>
+            </documentation>
+            <xmcda tag="alternatives"/>
         </input>
         <input id="input3" name="performance" displayName="performance table" isoptional="0">
             <documentation>
