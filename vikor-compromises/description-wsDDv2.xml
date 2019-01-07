@@ -15,14 +15,14 @@
             <xmcda tag="alternatives"/>
         </input>
 
-        <input id="input2" name="s" displayName="Manhattan distance (S)">
+        <input id="input2" name="s" displayName="Manhattan distance (S)" isoptional="0">
             <documentation>
                 <description>weighted and normalized Manhattan distance ranking by minimum value (the maximum group utility)</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </input>
 
-        <input id="input3" name="r" displayName="Chebyshev distance (R)">
+        <input id="input3" name="r" displayName="Chebyshev distance (R)" isoptional="0">
             <documentation>
                 <description>weighted and normalized Chebyshev distance ranking by minimum value (the minimum individual regret of the opponent)</description>
             </documentation>
