@@ -28,6 +28,7 @@
             </documentation>
             <xmcda tag="alternativesValues"/>
         </input>
+
         <input id="input4" name="method_parameters" displayName="v" isoptional="0">
             <documentation>
                 <description>weight of the strategy of S and R</description>
@@ -35,24 +36,25 @@
             <xmcda tag="programParameters"/>
         </input>
 
+        <output id="output3" name="compromiseSolution" displayName="Compromised solution">
+            <documentation>
+                <description>Compromised solution</description>
+            </documentation>
+            <xmcda tag="alternatives"/>
+        </output>
+
         <output id="output1" name="q" displayName="Group utility (Q)">
             <documentation>
                 <description>weight for the strategy of maximum group utility ranking by minimum value</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </output>
+
         <output id="output2" name="ranking" displayName="Overall ranking">
             <documentation>
                 <description>Final ranking of all alternatives</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
-        </output>
-
-        <output id="output3" name="compromiseSolution" displayName="Compromised solution">
-            <documentation>
-                <description>Compromised solution</description>
-            </documentation>
-            <xmcda tag="alternatives"/>
         </output>
 
         <output id="output4" name="messages" displayName="messages">
