@@ -29,7 +29,7 @@
             <xmcda tag="alternativesValues"/>
         </input>
 
-        <input id="input4" name="method_parameters" displayName="v" isoptional="0">
+        <input id="input4" name="veto" displayName="veto" isoptional="0">
             <documentation>
                 <description>weight of the strategy of S and R</description>
             </documentation>
@@ -45,11 +45,11 @@
     </programParameters>
 ]]></xmcda>
             <gui status="preferGUI">
-                <entry id="%1" type="float" displayName="v" />
+                <entry id="%1" type="float" displayName="veto" />
             </gui>
         </input>
 
-        <output id="output3" name="compromiseSolution" displayName="Compromised solution">
+        <output id="output3" name="compromise_solution" displayName="Compromised solution">
             <documentation>
                 <description>Compromised solution</description>
             </documentation>

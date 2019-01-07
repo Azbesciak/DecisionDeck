@@ -36,12 +36,12 @@ dir.create(file.path(outDirectory), showWarnings = FALSE)
 #outDirectory <- "/path/to/vikor/tests/out_tmp/"
 # filenames
 alternativesFile <- "alternatives.xml"
-method_parametersFile <- "method_parameters.xml"
+vetoFile <- "veto.xml"
 sFile <- "s.xml"
 rFile <- "r.xml"
 qFile <- "q.xml"
 rankingFile <- "ranking.xml"
-compromiseSolutionFile <- "compromiseSolution.xml"
+compromiseSolutionFile <- "compromise_solution.xml"
 messagesFile <- "messages.xml"
 # the Java xmcda object for the output messages
 xmcdaMessages<-.jnew("org/xmcda/XMCDA")
@@ -49,7 +49,7 @@ xmcdaData <- .jnew("org/xmcda/XMCDA")
 loadXMCDAv3(xmcdaData, inDirectory, alternativesFile, mandatory = TRUE, xmcdaMessages, "alternatives")
 loadXMCDAv3(xmcdaData, inDirectory, sFile, mandatory = TRUE, xmcdaMessages, "alternativesValues")
 loadXMCDAv3(xmcdaData, inDirectory, rFile, mandatory = TRUE, xmcdaMessages, "alternativesValues")
-loadXMCDAv3(xmcdaData, inDirectory, method_parametersFile, mandatory = TRUE, xmcdaMessages, "programParameters")
+loadXMCDAv3(xmcdaData, inDirectory, vetoFile, mandatory = TRUE, xmcdaMessages, "programParameters")
 # if we have problem with the inputs, it is time to stop
 if (xmcdaMessages$programExecutionResultsList$size() > 0){
   if (xmcdaMessages$programExecutionResultsList$get(as.integer(0))$isError()){
