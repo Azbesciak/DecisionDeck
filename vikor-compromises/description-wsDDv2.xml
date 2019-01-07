@@ -33,7 +33,18 @@
             <documentation>
                 <description>weight of the strategy of S and R</description>
             </documentation>
-            <xmcda tag="methodParameters"/>
+            <xmcda tag="methodParameters"><![CDATA[
+    <methodParameters>
+        <parameter id="veto">
+            <value>
+                <real>%1</real>
+            </value>
+        </parameter>
+    </methodParameters>
+]]></xmcda>
+            <gui status="preferGUI">
+                <entry id="%1" type="float" displayName="v" />
+            </gui>
         </input>
 
         <output id="output3" name="compromiseSolution" displayName="Compromised solution">
