@@ -10,7 +10,7 @@
 
         <input id="input2" name="criteria" displayName="matrix of alternatives influence" isoptional="0">
             <documentation>
-                <description>Criteria of comparision</description>
+                <description>Criteria of comparision. Criteria scales are also required as min/max.</description>
             </documentation>
             <xmcda tag="criteria"/>
         </input>
