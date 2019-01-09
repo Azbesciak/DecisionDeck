@@ -40,8 +40,9 @@
         <input id="input5" name="preference" displayName="preference of alternatives" isoptional="0">
             <documentation>
                 <description>
-                    Matrix containing the pairwise comparison matrix for the alternatives on given criterion.
-                    Rows and columns are named according to the IDs of the criteria.
+                    Matrices of pairwise comparisons (comparing alternatives) for each criterion.
+                    Each matrix is identified (id) according to the IDs of the criteria.
+                    In each matrix, the rows and the columns are named according to the IDs of the alternatives.
                     Each cell of the matrix contains an intensity of importance on the AHP scale, which is an integer.
                     The inverse intensity is calculated automatically.
                 </description>
