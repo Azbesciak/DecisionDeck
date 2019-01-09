@@ -39,11 +39,11 @@
             <xmcda tag="alternativesMatrix"/>
         </input>
 
-        <output id="output1" name="ranking" displayName="final ranking">
+        <output id="output1" name="scores" displayName="final scores">
             <documentation>
-                <description>Result ranking of alternatives</description>
+                <description>Scores of alternatives</description>
             </documentation>
-            <xmcda tag="alternativesAssignments"/>
+            <xmcda tag="alternativesValues"/>
         </output>
 
         <output id="output2" name="messages" displayName="messages">

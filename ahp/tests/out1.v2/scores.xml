@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-2.2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance">
+    <alternativesValues>
+        <alternativeValue>
+            <alternativeID>banana</alternativeID>
+            <value>
+                <real>0.6491180046313253</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>apple</alternativeID>
+            <value>
+                <real>0.2789545654864182</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>cherry</alternativeID>
+            <value>
+                <real>0.07192742988225655</real>
+            </value>
+        </alternativeValue>
+    </alternativesValues>
+</xmcda:XMCDA>
