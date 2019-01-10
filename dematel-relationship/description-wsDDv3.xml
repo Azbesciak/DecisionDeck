@@ -75,14 +75,14 @@
             <xmcda tag="alternativesMatrix"/>
         </output>
 
-        <output id="output1" name="prominence" displayName="prominence (D+R)">
+        <output id="output1" name="prominence" displayName="prominence (R+C)">
             <documentation>
                 <description>Overall influence of factors</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </output>
 
-        <output id="output2" name="relation" displayName="relation (D-R)">
+        <output id="output2" name="relation" displayName="relation (R-C)">
             <documentation>
                 <description>Causal character of factors</description>
             </documentation>
