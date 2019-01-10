@@ -28,8 +28,7 @@
         </input>
         <input id="input4" name="criteria_comparisons" displayName="criteria comparisons" isoptional="0">
             <documentation>
-                <description>
-                    Matrix containing the pairwise comparison matrix for the criteria weights.
+                <description>Matrix containing the pairwise comparison matrix for the criteria weights.
                     Rows and columns are named according to the IDs of the parent criterion (or root's ID if there is no higher level criterion).
                     Each cell of the matrix contains an intensity of importance on the AHP scale, which is an integer.
                     The inverse intensity is calculated automatically.
@@ -39,8 +38,7 @@
         </input>
         <input id="input5" name="preference" displayName="preference of alternatives" isoptional="0">
             <documentation>
-                <description>
-                    Matrices of pairwise comparisons (comparing alternatives) for each criterion.
+                <description>Matrices of pairwise comparisons (comparing alternatives) for each criterion.
                     Each matrix is identified (id) according to the IDs of the criteria.
                     In each matrix, the rows and the columns are named according to the IDs of the alternatives.
                     Each cell of the matrix contains an intensity of importance on the AHP scale, which is an integer.
