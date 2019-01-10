@@ -3,14 +3,12 @@ library(XMCDA3)
 XMCDA_v2_TAG_FOR_FILENAME <- list(
   # output name -> XMCDA v2 tag
   q = "alternativesValues",
-  ranking = "alternativesValues",
   compromiseSolution = "alternatives",
   messages = "methodMessages"
 )
 XMCDA_v3_TAG_FOR_FILENAME <- list(
   # output name -> XMCDA v3 tag
   q = "alternativesValues",
-  ranking = "alternativesValues",
   compromiseSolution = "alternatives",
   messages = "programExecutionResult"
 )
@@ -32,14 +30,6 @@ assignAlternatives <- function(values, programExecutionResult) {
     xmcdaResult
   }
 }
-
-getVec <- function(ranking, column) sort(setNames(as.character(ranking[[column]]), rownames(ranking)))
-
-getXmcdaRanking <- function(ranking, column, programExecutionResult) {
-  values = getVec(ranking, column)
-  assignAlternatives(values, programExecutionResult)
-}
-
 
 getAlternativesNames <- function(alternativesValues, programExecutionResult){
   xmcdaResult <- .jnew("org/xmcda/XMCDA")
@@ -64,12 +54,11 @@ getAlternativesNames <- function(alternativesValues, programExecutionResult){
 }
 
 convert <- function(results, programExecutionResult) {
-  q = getXmcdaRanking(results$ranking, "Q", programExecutionResult)
-  ranking = getXmcdaRanking(results$ranking, "Ranking", programExecutionResult)
+  q = assignAlternatives(results$Q, programExecutionResult)
   compromises = getAlternativesNames(results$compromiseSolution, programExecutionResult)
-  if (is.null(q) || is.null(ranking) || is.null(compromises)) {
+  if (is.null(q) || is.null(compromises)) {
     NULL
   } else{
-    list(q = q, ranking = ranking, compromise_solution = compromises)
+    list(q = q, compromise_solution = compromises)
   }
 }

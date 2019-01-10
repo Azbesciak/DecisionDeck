@@ -20,6 +20,8 @@
 		v * (S - minS) / (maxS - minS) + (1 - v) * (R - minR) / (maxR - minR)
 }
 
+.rank = function(V) names(sort(rank(V, ties.method = "first")))
+
 vikorCompromises = function(S, R, v) {
 	if (missing(S) || missing(R) || missing(v))
 	stop("usage:
@@ -52,26 +54,23 @@ vikorCompromises = function(S, R, v) {
 	#4. Checking if Q is valid
 	if (Q == "NaN" || Q == "Inf")
 		stop("Could not compute compromises: Q vector contains INF or NaN")
-	QRanking = rank(Q, ties.method = "first")
 	#5. Ranking the alternatives
-	sortedQRank = names(sort(QRanking))
-	sortedSRank = names(sort(rank(S, ties.method = "first")))
-	sortedRRank = names(sort(rank(R, ties.method = "first")))
+	sortedQ = sort(Q)
+	sortedS = sort(S)
+	sortedR = sort(R)
 	DQ = 1 / (length(R) - 1)
-	isAcceptableAdvantage = Q[[sortedQRank[2]]] - Q[[sortedQRank[1]]] >= DQ
-	isAcceptableStability = sortedQRank[1] == sortedSRank[1] || sortedQRank[1] == sortedRRank[1]
-	compromiseSolution = if (! isAcceptableStability && isAcceptableAdvantage) {
-		sortedQRank[1 : 2]
+	isAcceptableAdvantage = sortedQ[2] - sortedQ[1] >= DQ
+	isAcceptableStability = names(sortedQ[1]) == names(sortedS[1]) ||
+							names(sortedQ[1]) == names(sortedR[1])
+	compromiseSolutions = if (! isAcceptableStability && isAcceptableAdvantage) {
+		sortedQ[1 : 2]
 	} else if (! isAcceptableAdvantage) {
-		names(Filter(function(X) X - Q[sortedQRank[1]] < DQ, Q))
+		names(Filter(function(X) X - sortedQ[[1]] < DQ, Q))
 	} else {
-		sortedQRank[1]
+		sortedQ[1]
 	}
 	list(
-		ranking = data.frame(
-			Q = Q,
-			Ranking = QRanking
-		),
-		compromiseSolutions = compromiseSolution
+		Q = sortedQ,
+		compromiseSolutions = compromiseSolutions
 	)
 }
