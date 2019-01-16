@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="dematelRelationship" version="1.0.0" displayName="dematelRelationship"/>
+    <program provider="PUT" name="DEMATEL_relation" version="1.0.0" displayName="DEMATEL_relation"/>
     <documentation>
-        <description>Computes prominences and relations for given alternatives and effects (in and out) using DEMATEL method. Those vectors are the results of step 4, and also output of the module 'dematelInfluence'.
+        <description>Computes prominences and relations for given alternatives and effects (in and out) using DEMATEL method. Those vectors are the results of step 4, and also output of the module 'DEMATEL_influences'.
 For more details please refer to https://doi.org/10.1155/2018/3696457, from step 5.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
         <url>https://github.com/Azbesciak/DecisionDeck</url>
