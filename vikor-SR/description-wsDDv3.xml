@@ -2,7 +2,8 @@
 <program_description>
     <program provider="PUT" name="VIKOR_SRVectors" version="1.0.0" displayName="VIKOR_SRVectors"/>
     <documentation>
-        <description>Computes class assignment for given alternatives using vikor method.</description>
+        <description>Computes Manhatan and Chebyshev distances for given alternatives, which i.e. may be later used in `VIKOR_rankings`.
+This module implements steps 1 and 2 of the VIKOR method.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
         <url>https://github.com/Azbesciak/DecisionDeck</url>
     </documentation>
