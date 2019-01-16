@@ -28,22 +28,29 @@
         </input>
         <input id="input4" name="criteria_comparisons" displayName="criteria comparisons" isoptional="0">
             <documentation>
-                <description>Performance between criteria, allowed only one side (A->B or B->A, not both)</description>
+                <description>Matrix containing the pairwise comparison matrix for the criteria weights.
+Rows and columns are named according to the IDs of the parent criterion (or root's ID if there is no higher level criterion).
+Each cell of the matrix contains an intensity of importance on the AHP scale, which is an integer.
+The inverse intensity is calculated automatically.</description>
             </documentation>
             <xmcda tag="criteriaComparisons"/>
         </input>
         <input id="input5" name="preference" displayName="preference of alternatives" isoptional="0">
             <documentation>
-                <description>Performance between final criteria for each alternative, allowed only one side (A->B or B->A, not both)</description>
+                <description>Matrices of pairwise comparisons (comparing alternatives) for each criterion.
+Each matrix is identified (id) according to the IDs of the criteria.
+In each matrix, the rows and the columns are named according to the IDs of the alternatives.
+Each cell of the matrix contains an intensity of importance on the AHP scale, which is an integer.
+The inverse intensity is calculated automatically.</description>
             </documentation>
             <xmcda tag="alternativesComparisons"/>
         </input>
 
-        <output id="output1" name="ranking" displayName="final ranking">
+        <output id="output1" name="scores" displayName="final scores">
             <documentation>
-                <description>Result ranking of alternatives</description>
+                <description>Scores of alternatives</description>
             </documentation>
-            <xmcda tag="alternativesAffectations"/>
+            <xmcda tag="alternativesValues"/>
         </output>
 
         <output id="output2" name="messages" displayName="messages">

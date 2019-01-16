@@ -6,16 +6,13 @@ import org.xmcda.Alternative
 
 object RankingParser {
     fun convert(result: Ranking<*>): XMCDA {
-        val alternativeAssignments = AlternativesAssignments<Double>()
-        alternativeAssignments += result.map { it.toAssignment() }
+        val alternativeAssignments = AlternativesValues<Double>()
+        alternativeAssignments += result.map { it.toAssignment() }.toMap()
         return XMCDA().apply {
-            alternativesAssignmentsList += alternativeAssignments
+            alternativesValuesList += alternativeAssignments
         }
     }
 
     private fun RankEntry<*>.toAssignment() =
-            AlternativeAssignment<Double>().apply {
-                alternative = Alternative(this@toAssignment.alternative.name)
-                values = QualifiedValues<Double>(QualifiedValue(value))
-            }
+            Alternative(alternative.name) to LabelledQValues<Double>(QualifiedValue(value))
 }

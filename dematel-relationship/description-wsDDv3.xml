@@ -2,7 +2,8 @@
 <program_description>
     <program provider="PUT" name="dematelRelationship" version="1.0.0" displayName="dematelRelationship"/>
     <documentation>
-        <description>Computes prominences and relations for given alternatives and given effects using dematel method.</description>
+        <description>Computes prominences and relations for given alternatives and effects (in and out) using DEMATEL method. Those vectors are the results of step 4, and also output of the module 'dematelInfluence'.
+For more details please refer to https://doi.org/10.1155/2018/3696457, from step 5.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
         <url>https://github.com/Azbesciak/DecisionDeck</url>
     </documentation>
@@ -24,14 +25,16 @@
 
         <input id="input3" name="out_effect" displayName="out effect (R)" isoptional="0">
             <documentation>
-                <description>Sum (by row) of direct and indirect effects of criterion/factor on the other criteria/factors</description>
+                <description>Sum (by row) of direct and indirect effects of criterion/alternative/factor on the other criteria/alternatives/factors.
+This is one of the DEMATEL step 4 results.</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </input>
 
         <input id="input4" name="in_effect" displayName="in effect (C)" isoptional="0">
             <documentation>
-                <description>Sum (by column) of direct and indirect effects of criterion/factor received from other criteria/factors</description>
+                <description>Sum (by column) of direct and indirect effects of criterion/alternative/factor received from other criteria/alternatives/factors.
+This is one of the DEMATEL step 4 results.</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </input>
@@ -63,14 +66,14 @@
             <xmcda tag="alternativesMatrix"/>
         </output>
 
-        <output id="output1" name="prominence" displayName="prominence (D+R)">
+        <output id="output1" name="prominence" displayName="prominence (R+C)">
             <documentation>
                 <description>Overall influence of factors</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </output>
 
-        <output id="output2" name="relation" displayName="relation (D-R)">
+        <output id="output2" name="relation" displayName="relation (R-C)">
             <documentation>
                 <description>Causal character of factors</description>
             </documentation>

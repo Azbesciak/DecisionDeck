@@ -1,29 +1,29 @@
 <?xml version="1.0" ?>
 <xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
-	<alternativesAssignments>
-		<alternativeAssignment>
+	<alternativesValues>
+		<alternativeValue>
 			<alternativeID>banana</alternativeID>
 			<values>
 				<value>
 					<real>0.6491180046313253</real>
 				</value>
 			</values>
-		</alternativeAssignment>
-		<alternativeAssignment>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>apple</alternativeID>
 			<values>
 				<value>
 					<real>0.2789545654864182</real>
 				</value>
 			</values>
-		</alternativeAssignment>
-		<alternativeAssignment>
+		</alternativeValue>
+		<alternativeValue>
 			<alternativeID>cherry</alternativeID>
 			<values>
 				<value>
 					<real>0.07192742988225655</real>
 				</value>
 			</values>
-		</alternativeAssignment>
-	</alternativesAssignments>
+		</alternativeValue>
+	</alternativesValues>
 </xmcda:XMCDA>

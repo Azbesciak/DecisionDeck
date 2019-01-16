@@ -2,7 +2,9 @@
 <program_description>
     <program provider="PUT" name="dematelInfluence" version="1.0.0" displayName="dematelInfluence"/>
     <documentation>
-        <description>Computes effects (in and out) and relations for given alternatives using dematel method.</description>
+        <description>Computes effects (in and out) and relations for given alternatives used in DEMATEL method.
+Basing on processed matrix of alternatives influences (each on each) there are prepared vectors - in_effect, which is the total effect from other alternatives on this alternative, and out_effect - the same, but reversed - this alternative on all other.
+For more details please refer to https://doi.org/10.1155/2018/3696457, step 4.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
         <url>https://github.com/Azbesciak/DecisionDeck</url>
     </documentation>
@@ -31,14 +33,16 @@
 
         <output id="output1" name="out_effect" displayName="out effect (R)">
             <documentation>
-                <description>Sum (by row) of direct and indirect effects of criterion/factor on the other criteria/factors</description>
+                <description>Sum (by row) of direct and indirect effects of criterion/alternative/factor on the other criteria/alternatives/factors.
+This is one of the DEMATEL step 4 results.</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </output>
 
         <output id="output2" name="in_effect" displayName="in effect (C)">
             <documentation>
-                <description>Sum (by column) of direct and indirect effects of criterion/factor received from other criteria/factors</description>
+                <description>Sum (by column) of direct and indirect effects of criterion/alternative/factor received from other criteria/alternatives/factors.
+This is one of the DEMATEL step 4 results.</description>
             </documentation>
             <xmcda tag="alternativesValues"/>
         </output>

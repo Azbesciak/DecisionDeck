@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2017/XMCDA-2.2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance">
+    <alternativesValues>
+        <alternativeValue>
+            <alternativeID>y</alternativeID>
+            <value>
+                <real>0.4621276600080843</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>x</alternativeID>
+            <value>
+                <real>0.38836492276162143</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>z</alternativeID>
+            <value>
+                <real>0.14950741723029426</real>
+            </value>
+        </alternativeValue>
+    </alternativesValues>
+</xmcda:XMCDA>
