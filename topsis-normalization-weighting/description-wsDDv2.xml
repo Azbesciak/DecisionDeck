@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="NormalizationWeighting" version="1.0.0" displayName="Normalization and Weighting"/>
+    <program provider="PUT" name="TOPSIS_normalizationAndWeighting" version="1.0.0" displayName="TOPSIS_normalizationAndWeighting"/>
     <documentation>
         <description>Computes normalized and weighted performance for each alternative.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
