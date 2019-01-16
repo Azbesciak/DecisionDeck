@@ -2,7 +2,8 @@
 <program_description>
     <program provider="PUT" name="VIKOR_rankings" version="1.0.0" displayName="VIKOR_rankings"/>
     <documentation>
-        <description>Computes class assignment for given alternatives using vikor method.</description>
+        <description>Computes compromise alternatives and vector `q` for given alternatives, according to 2 indexes - originally Manhattan and Chebyshev distances for each alternative.
+This module bases on VIKOR method, from step 3 as a continuation of module `VIKOR_SRVectors`.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
         <url>https://github.com/Azbesciak/DecisionDeck</url>
     </documentation>
