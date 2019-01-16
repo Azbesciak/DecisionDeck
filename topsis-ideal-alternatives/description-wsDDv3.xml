@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="IdealAlternatives" version="1.0.0" displayName="Ideal Alternatives"/>
+    <program provider="PUT" name="TOPSIS_extremeAlternatives" version="1.0.0" displayName="TOPSIS_extremeAlternatives"/>
     <documentation>
         <description>Computes positive and negative ideal alternatives from given alternatives.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>

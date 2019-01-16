@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="DistanceRanking" version="1.0.0" displayName="Distance Ranking"/>
+    <program provider="PUT" name="TOPSIS_ranking" version="1.0.0" displayName="TOPSIS_ranking"/>
     <documentation>
         <description>Computes ranking by distance ratio (nDist/(nDist+pDist) to ideal alternatives</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>

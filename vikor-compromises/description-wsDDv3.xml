@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="vikor" version="1.0.0" displayName="vikor"/>
+    <program provider="PUT" name="VIKOR_rankings" version="1.0.0" displayName="VIKOR_rankings"/>
     <documentation>
         <description>Computes class assignment for given alternatives using vikor method.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
