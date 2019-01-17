@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="VIKOR_rankings" version="1.0.0" displayName="VIKOR_rankings"/>
+    <program provider="PUT" name="VIKOR_ranking" version="1.0.0" displayName="VIKOR_ranking"/>
     <documentation>
         <description>Computes compromise alternatives and vector `q` for given alternatives, according to 2 indexes - originally Manhattan and Chebyshev distances for each alternative.
 This module bases on VIKOR method, from step 3 as a continuation of module `VIKOR_SRVectors`.</description>
