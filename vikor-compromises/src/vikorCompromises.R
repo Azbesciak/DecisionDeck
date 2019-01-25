@@ -44,7 +44,7 @@ vikorCompromises = function(S, R, v) {
 		! all(is.numeric(R)))
 	stop("'R' must be a non-negative values vector")
 	if (v < 0 || v > 1 || ! is.numeric(v))
-	stop("A numeric value for 'v' (veto) in [0,1] should be provided")
+	stop("A numeric value for 'v' in [0,1] should be provided")
 
 	S = S[order(names(S))]
 	R = R[order(names(R))]
