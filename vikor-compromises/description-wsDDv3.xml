@@ -30,13 +30,13 @@ This module bases on VIKOR method, from step 3 as a continuation of module `VIKO
             <xmcda tag="alternativesValues"/>
         </input>
 
-        <input id="input4" name="veto" displayName="veto" isoptional="0">
+        <input id="input4" name="v" displayName="v" isoptional="0">
             <documentation>
                 <description>Weight of the strategy of S and R</description>
             </documentation>
             <xmcda tag="programParameters"><![CDATA[
     <programParameters>
-        <parameter id="veto">
+        <parameter id="v">
             <values>
                 <value>
                     <real>%1</real>
@@ -46,7 +46,7 @@ This module bases on VIKOR method, from step 3 as a continuation of module `VIKO
     </programParameters>
 ]]></xmcda>
             <gui status="preferGUI">
-                <entry id="%1" type="float" displayName="veto" />
+                <entry id="%1" type="float" displayName="v" />
             </gui>
         </input>
 

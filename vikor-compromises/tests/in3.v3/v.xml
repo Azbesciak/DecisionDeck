@@ -4,7 +4,7 @@
              xsi:schemaLocation="http://www.decision-deck.org/2017/XMCDA-3.0.2
               http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.0.2.xsd">
     <programParameters>
-        <parameter id="veto">
+        <parameter id="v">
             <values>
                 <value>
                     <real>0.5</real>

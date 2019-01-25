@@ -19,9 +19,9 @@ checkAndExtractInputs <- function(xmcdaData) {
 	r = alternativesValues[[2]]
 
 	parameters = extractProgramParameters(xmcdaData)
-	v = parameters[[1]]$veto[[1]]
+	v = parameters[[1]]$v[[1]]
 	if (is.null(v)) {
-		msg <- "veto value has not been supplied"
+		msg <- "v value has not been supplied"
 		putProgramExecutionResult(xmcdaMessages, errors = msg)
 		return(NULL)
 	}
