@@ -65,12 +65,12 @@ vikorCompromises = function(S, R, v) {
 	compromiseSolutions = if (! isAcceptableStability && isAcceptableAdvantage) {
 		sortedQ[1 : 2]
 	} else if (! isAcceptableAdvantage) {
-		names(Filter(function(X) X - sortedQ[[1]] < DQ, Q))
+		Filter(function(X) X - sortedQ[[1]] < DQ, Q)
 	} else {
 		sortedQ[1]
 	}
 	list(
 		Q = sortedQ,
-		compromiseSolutions = compromiseSolutions
+		compromiseSolutions = names(compromiseSolutions)
 	)
 }
