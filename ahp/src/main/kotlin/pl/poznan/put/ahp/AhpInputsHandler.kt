@@ -71,7 +71,7 @@ internal object AhpInputsHandler : InputsHandler<AhpResult> {
 
         fun AlternativesMatrix<*>.fetch() {
             requireNotNull(id()) { "Missing criteriaID for alternatives comparision" }
-            require(id() !in alternativesPreferences) { "duplicated alternatives comparision on criterion ${id()}" }
+            require(id() !in alternativesPreferences) { "duplicated alternatives comparision on criterion '${id()}'" }
             alternativesPreferences[id()] = map { it.relation }
         }
 
@@ -82,7 +82,7 @@ internal object AhpInputsHandler : InputsHandler<AhpResult> {
                     value.convertToDouble().value()
             ).also {
                 require(it.firstID != it.secondID || it.value == 1.0) {
-                    "Self reference is required to have preference equal to 1; got ${it.value} for ${it.firstID}"
+                    "Self reference is required to have preference equal to 1; got ${it.value} for '${it.firstID}'"
                 }
             }
 
@@ -111,7 +111,7 @@ internal object AhpInputsHandler : InputsHandler<AhpResult> {
         private fun getCriteriaFromPreference() =
                 alternativesPreferences.run {
                     require(isNotEmpty()) { "preferences not found" }
-                    forEach { k, y -> require(y.isNotEmpty()) { "preferences on $k are not set" } }
+                    forEach { k, y -> require(y.isNotEmpty()) { "preferences on '$k' are not set" } }
                     keys.sorted()
                 }
 
@@ -129,12 +129,31 @@ internal object AhpInputsHandler : InputsHandler<AhpResult> {
                     val matrix = (notDiagonal.flatMap { listOf(it, it.reversed()) } + diagonal)
                             .sortedWith(compareBy({ it.firstID }, { it.secondID }))
                     matrix.map { it.firstID to it.secondID }
-                            .requireDistinct { "values of $it are duplicated comparision for $k" }
+                            .requireDistinct { "values of '$it' are duplicated comparision for '$k'" }
                     matrix.map { it.value }.chunked(diagonal.size).also {
-                        require(it.size == it.last().size) { "dimensions of $k are not equal" }
-                        require(it.size == diagonal.size) { "too few elements for $k" }
+                        require(it.size == it.last().size) {
+                            "dimensions of '$k' are not equal; missing comparisons: ${getMissingValues(matrix, diagonal)}"
+                        }
+                        require(it.size == diagonal.size) {
+                            "too few elements for '$k'; missing comparisons: ${getMissingValues(matrix, diagonal)}"
+                        }
                     }
                 }
+
+        private fun getMissingValues(matrix: List<RelationValue>, diagonal: List<RelationValue>): Set<Pair<String, String>> {
+            val providedComparisons = matrix.map { uniformKey(it.firstID, it.secondID) }.toSet()
+            val requiredComparisons = diagonal
+                    .dropLast(1)
+                    .mapIndexed { i, f ->
+                        diagonal.drop(i + 1)
+                                .map { s -> uniformKey(f.firstID, s.secondID) }
+                    }.flatten()
+                    .toSet()
+            return requiredComparisons - providedComparisons
+        }
+
+        private fun uniformKey(firstID: String, secondID: String) =
+                if (firstID < secondID) firstID to secondID else secondID to firstID
 
         private inline fun <T> List<T>.requireDistinct(onError: (T) -> String) {
             val set = mutableSetOf<T>()
@@ -201,7 +220,7 @@ internal object AhpInputsHandler : InputsHandler<AhpResult> {
 
         private fun matchRelationsWithCategories(k: CrytId, v: List<CrytId>, leafs: Leafs) =
                 v.mapNotNull { leafs.remove(it) }.also {
-                    require(it.isEmpty() || it.size == v.size) { "not all categories matched for $k" }
+                    require(it.isEmpty() || it.size == v.size) { "not all categories matched for '$k'" }
                 }
     }
 
