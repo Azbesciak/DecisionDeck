@@ -57,7 +57,12 @@ For more details please refer to https://doi.org/10.1155/2018/3696457, from step
     </methodParameters>
 ]]></xmcda>
             <gui status="preferGUI">
-                <entry id="%1" type="float" displayName="alpha" />
+                <entry id="%1" type="float" displayName="alpha">
+                    <constraint>
+                        <description>A numeric value alpha, with 0≤v</description>
+                        <code><![CDATA[ %1 >= 0 ]]></code>
+                    </constraint>
+                </entry>
             </gui>
         </input>
 
