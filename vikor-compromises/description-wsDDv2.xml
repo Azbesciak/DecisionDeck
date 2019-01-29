@@ -44,7 +44,12 @@ This module bases on VIKOR method, from step 3 as a continuation of module `VIKO
     </methodParameters>
 ]]></xmcda>
             <gui status="preferGUI">
-                <entry id="%1" type="float" displayName="v" />
+                <entry id="%1" type="float" displayName="v">
+                    <constraint>
+                        <description>A numeric value v, with 0≤v≤1</description>
+                        <code><![CDATA[ %1 >= 0 && %1 <= 1 ]]></code>
+                    </constraint>
+                </entry>
             </gui>
         </input>
 
