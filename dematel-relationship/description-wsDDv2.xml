@@ -59,7 +59,7 @@ For more details please refer to https://doi.org/10.1155/2018/3696457, from step
             <gui status="preferGUI">
                 <entry id="%1" type="float" displayName="alpha">
                     <constraint>
-                        <description>A numeric value alpha, with 0≤v</description>
+                        <description>A numeric value alpha, with alpha≥0</description>
                         <code><![CDATA[ %1 >= 0 ]]></code>
                     </constraint>
                 </entry>
