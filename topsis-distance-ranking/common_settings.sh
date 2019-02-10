@@ -6,7 +6,7 @@ GRADLE_EXE_PATH="../gradlew"
 JAR_PATH="./build/libs" #default path where gradle puts outputs, however may be changed later as same as jar name if necessary
 VERSION="1.0"
 PROJECT_NAME="topsis-distance-ranking"
-JAR_FILE_NAME="$PROJECT_NAME-$VERSION-all.jar"
+JAR_FILE_NAME="$PROJECT_NAME-$VERSION.jar"
 
 JAVA="${JAVA_HOME}/bin/java"
 
