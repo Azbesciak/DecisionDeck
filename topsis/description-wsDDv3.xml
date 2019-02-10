@@ -40,7 +40,7 @@
             <xmcda tag="criteriaScales"/>
         </input>
 
-        <output id="output1" name="ranking" displayName="final ranking">
+        <output id="output1" name="scores" displayName="final ranking">
             <documentation>
                 <description>Result ranking of alternatives</description>
             </documentation>
