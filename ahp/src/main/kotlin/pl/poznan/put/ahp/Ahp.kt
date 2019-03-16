@@ -5,6 +5,7 @@ import org.ejml.simple.SimpleMatrix
 import pl.poznan.put.xmcda.ranking.Alternative
 import pl.poznan.put.xmcda.ranking.RankEntry
 import pl.poznan.put.xmcda.ranking.Ranking
+import java.lang.Math.abs
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -40,6 +41,7 @@ internal class Category(
 ) : Node(name) {
     companion object {
         val ri = arrayOf(0.0, 0.0, 0.0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49).map { BigDecimal(it) }
+        private const val VALIDITY_EPS = 0.001
     }
 
     var cr = BigDecimal.ONE
@@ -75,12 +77,34 @@ internal class Category(
     }
 
     private fun validate() {
-        require(subNodes.size == preferenceMat.size) { "categories number is not equal to preferences n" }
-        require(subNodes.size < ri.size) { "number of categories must be less or equal to ${ri.size - 1}" }
-        preferenceMat.forEachIndexed { i, row ->
-            require(row.size == preferenceMat.size) {
-                "row $i differs in size (${row.size} but expected ${preferenceMat.size})"
+        requireCondition(subNodes.size == preferenceMat.size) { "categories number is not equal to preferences n" }
+        requireCondition(subNodes.size < ri.size) { "number of categories must be less or equal to ${ri.size - 1}" }
+        requireCondition(preferenceMat.all { it.all { v -> v > 0 } }) { "all values must be positive in preference matrix" }
+        preferenceMat.forEachIndexed { r, row ->
+            requireCondition(row.size == preferenceMat.size) {
+                "row $r differs in size (${row.size} but expected ${preferenceMat.size})"
             }
+        }
+        preferenceMat.forEachIndexed { r, row ->
+            row.forEachIndexed { vi, value ->
+                when (vi) {
+                    r -> requireCondition(abs(value - 1) < VALIDITY_EPS) {
+                        "all values on diagonal must be equal to 1"
+                    }
+                    else -> {
+                        val reversePref = preferenceMat[r][vi]
+                        requireCondition(abs(value - reversePref) < VALIDITY_EPS) {
+                            "value for preference $vi -> $r must be equal to preference 1/($r -> $vi), got $value and ${1 / reversePref} (originally $reversePref)"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private inline fun requireCondition(condition: Boolean, message: () -> String) {
+        require(condition) {
+            "${message()} for '$name'"
         }
     }
 
@@ -88,7 +112,7 @@ internal class Category(
         val n = subNodes.size
         val tempMat = preferenceMat.map { it.toDoubleArray() }.toTypedArray()
         val eig = SimpleMatrix(tempMat).eig()
-        require(eig.numberOfEigenvalues == n) { "missing eigen values, got ${eig.numberOfEigenvalues}" }
+        requireCondition(eig.numberOfEigenvalues == n) { "missing eigen values, got ${eig.numberOfEigenvalues}" }
         val eigenVector = eig.getEigenVector(n - 1)
         val normalized = eigenVector.div(eigenVector.elementSum())
         if (n > 1) {
