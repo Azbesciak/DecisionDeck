@@ -168,18 +168,92 @@ class AHPTests extends Specification {
                 new Category("D", alternatives, prefD)
         ], categoriesPref)
         expect:
-        that goal["A"].cr, closeTo(0.069,0.001)
-        that goal["A"].ci, closeTo(0.04,0.001)
+        that goal["A"].cr, closeTo(0.069, 0.001)
+        that goal["A"].ci, closeTo(0.04, 0.001)
 
-        that goal["B"].cr, closeTo(0.046,0.001)
-        that goal["B"].ci, closeTo(0.027,0.001)
+        that goal["B"].cr, closeTo(0.046, 0.001)
+        that goal["B"].ci, closeTo(0.027, 0.001)
 
-        that goal.totalCR, closeTo(0.038,0.001)
+        that goal.totalCR, closeTo(0.038, 0.001)
+    }
+
+    def "car example - wikipedia - multiple hierarchy levels"() {
+        def accordSedan = alt("accordSedan")
+        def accordHybrid = alt("accordHybrid")
+        def pilotSuv = alt("pilotSuv")
+        def crvSuv = alt("crvSuv")
+
+        given:
+        def alternatives = [
+                accordSedan, accordHybrid, pilotSuv, crvSuv
+        ]
+        def cost = "cost"
+        def purPrice = "purchase price"
+        def fuelCost = "fuel cost"
+        def safety = "safety"
+
+        def costPref = [
+                [1,   2],
+                [1/2, 1]
+        ]
+        def purPricePref = [
+                [1,   9, 9, 6],
+                [1/9, 1, 1, 2],
+                [1/9, 1, 1, 2],
+                [1/6,   1/2, 1/2, 1]
+        ]
+
+        def fuelPricePref = [
+                [1,      1.13,   1.41,   1.15],
+                [1/1.13, 1,      1.59,   1.3],
+                [1/1.41, 1/1.59, 1,      1.23],
+                [1/1.15, 1/1.3,  1/1.23, 1]
+        ]
+
+        def safetyPref = [
+                [1,   1,   5,   7],
+                [1,   1,   5,   7],
+                [1/5, 1/5, 1,   2],
+                [1/7, 1/7, 1/2, 1]
+        ]
+
+        def catPref = [
+                [1,   2],
+                [1/2, 1]
+        ]
+
+        def costCategories = new Category(cost, [
+                new Category(purPrice, alternatives, purPricePref),
+                new Category(fuelCost, alternatives, fuelPricePref)
+        ], costPref)
+
+        def safetyCategory = new Category(safety, alternatives, safetyPref)
+
+        def goal = new Category("Choose the best car", [
+                costCategories, safetyCategory
+        ], catPref)
+
+        expect:
+        that goal[cost].ci, closeTo(0.0, 0.001)
+        that goal[cost].cr, closeTo(0.0, 0.001)
+        that goal[cost][purPrice].ci, closeTo(0.051, 0.001)
+        that goal[cost][purPrice].cr, closeTo(0.0572, 0.001)
+        that goal[cost][fuelCost].ci, closeTo(0.0095, 0.001)
+        that goal[cost][fuelCost].cr, closeTo(0.0105, 0.001)
+        that goal[safety].ci, closeTo(0.0053, 0.0001)
+        that goal[safety].cr, closeTo(0.0059, 0.0001)
+
+        that goal.totalCR, closeTo(0.0245,0.0001)
+
+        def ranking = AhpAlternative.ranking(alternatives)
+        ranking[0].alternative == accordHybrid
+        ranking[1].alternative == crvSuv
+        ranking[2].alternative == pilotSuv
+        ranking[3].alternative == accordSedan
     }
 
     def alt(name) {
         new AhpAlternative(name, [:])
     }
-
 
 }
