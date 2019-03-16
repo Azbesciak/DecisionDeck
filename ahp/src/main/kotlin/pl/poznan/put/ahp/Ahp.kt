@@ -99,7 +99,7 @@ internal class Category(
                             .max() ?: 0.0
             ).setScale(8, RoundingMode.HALF_UP)
             ci = (maxValue - bdn) / (bdn - BigDecimal.ONE)
-            cr = ci / ri[n]
+            cr = if (n > 2) ci / ri[n] else BigDecimal.ZERO
         }
 
         subNodes.forEachIndexed { i, c ->
