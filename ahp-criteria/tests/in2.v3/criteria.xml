@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA
+        xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0
+        http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+    <criteria>
+        <criterion id="education"/>
+        <criterion id="experience"/>
+        <criterion id="charisma"/>
+        <criterion id="age"/>
+    </criteria>
+</xmcda:XMCDA>

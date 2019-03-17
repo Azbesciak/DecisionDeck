@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+	<criteriaValues>
+		<criterionValue>
+			<criterionID>a</criterionID>
+			<values>
+				<value>
+					<real>0.5830887827444874</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>b</criterionID>
+			<values>
+				<value>
+					<real>0.28952994682186545</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>c</criterionID>
+			<values>
+				<value>
+					<real>0.0848960477307564</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>d</criterionID>
+			<values>
+				<value>
+					<real>0.04248522270289063</real>
+				</value>
+			</values>
+		</criterionValue>
+	</criteriaValues>
+</xmcda:XMCDA>

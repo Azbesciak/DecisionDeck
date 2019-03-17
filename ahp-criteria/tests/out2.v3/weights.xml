@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+	<criteriaValues>
+		<criterionValue>
+			<criterionID>experience</criterionID>
+			<values>
+				<value>
+					<real>0.5475692389618301</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>charisma</criterionID>
+			<values>
+				<value>
+					<real>0.2699499224522024</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>education</criterionID>
+			<values>
+				<value>
+					<real>0.1265552843734185</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>age</criterionID>
+			<values>
+				<value>
+					<real>0.05592555421254909</real>
+				</value>
+			</values>
+		</criterionValue>
+	</criteriaValues>
+</xmcda:XMCDA>

@@ -20,7 +20,7 @@ wrapper {
 }
 
 def runnableJVMProjects = [
-        "ahp", "topsis", "topsis-distance-ranking", "topsis-ideal-alternatives", "topsis-normalization-weighting"
+        "ahp", "ahp-criteria", "topsis", "topsis-distance-ranking", "topsis-ideal-alternatives", "topsis-normalization-weighting"
 ]
 
 subprojects {
@@ -38,6 +38,11 @@ subprojects {
         jcenter()
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        if (project.name.startsWith("ahp")) {
+            maven {
+                url "http://dl.bintray.com/kyonifer/maven"
+            }
+        }
     }
 
     dependencies {
@@ -53,6 +58,9 @@ subprojects {
             testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.0-M1'
             if (project.name != "topsis-common")
                 compile project(':topsis-common')
+        }
+        if (project.name.startsWith("ahp") && project.name != 'ahp-base') {
+            compile project(':ahp-base')
         }
     }
 

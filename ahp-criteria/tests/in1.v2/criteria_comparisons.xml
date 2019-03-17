@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmc:XMCDA xmlns:xmc="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <criteriaComparisons name="preference" id="preference">
+        <pairs>
+            <pair>
+                <initial>
+                    <criterionID>sweetness</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>price</criterionID>
+                </terminal>
+                <value>
+                    <integer>3</integer>
+                </value>
+            </pair>
+            <pair>
+                <initial>
+                    <criterionID>price</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>size</criterionID>
+                </terminal>
+                <value>
+                    <integer>5</integer>
+                </value>
+            </pair>
+            <pair>
+                <initial>
+                    <criterionID>sweetness</criterionID>
+                </initial>
+                <terminal>
+                    <criterionID>size</criterionID>
+                </terminal>
+                <value>
+                    <integer>7</integer>
+                </value>
+            </pair>
+        </pairs>
+    </criteriaComparisons>
+</xmc:XMCDA>

@@ -9,20 +9,20 @@ import java.lang.Math.abs
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-internal class AhpRanking private constructor(
+class AhpRanking private constructor(
         private val ranking: List<AhpRankEntry>
 ) : Ranking<AhpAlternative>, List<RankEntry<AhpAlternative>> by ranking {
     constructor(alternatives: Iterable<AhpAlternative>) :
             this(alternatives.map { AhpRankEntry(it, it.total()) }.sortedByDescending { it.value })
 }
 
-internal data class AhpRankEntry(
+data class AhpRankEntry(
         override val alternative: AhpAlternative,
         override val value: Double
 ) : RankEntry<AhpAlternative>
 
-internal sealed class Node(val name: String)
-internal class AhpAlternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name), Alternative {
+sealed class Node(val name: String)
+class AhpAlternative(name: String, val preferences: MutableMap<String, Double> = mutableMapOf()) : Node(name), Alternative {
     companion object {
         @JvmStatic
         fun List<AhpAlternative>.ranking() = AhpRanking(this)
@@ -34,20 +34,21 @@ internal class AhpAlternative(name: String, val preferences: MutableMap<String, 
     override fun toString() = "AhpAlternative(name=$name, preferences=$preferences)"
 }
 
-internal class Category(
+class Category(
         name: String,
         val subNodes: List<Node>,
         val preferenceMat: List<List<Double>>
 ) : Node(name) {
     companion object {
         val ri = arrayOf(0.0, 0.0, 0.0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49).map { BigDecimal(it) }
+        val VALIDITY_THRESHOLD = "0.1".toBigDecimal()
         private const val VALIDITY_EPS = 0.001
     }
 
     var cr = BigDecimal.ONE
     var ci = BigDecimal.ONE
 
-    val validity get() = cr <= "0.1".toBigDecimal()
+    val validity get() = cr <= VALIDITY_THRESHOLD
 
     init {
         validate()
@@ -148,5 +149,5 @@ internal class Category(
             "Category(name=$name, subNodes=$subNodes, preferenceMat=$preferenceMat, preference=$preference, cr=$cr, ci=$ci)"
 }
 
-internal data class InvalidNode(val name: String, val cr: BigDecimal)
-internal data class AhpResult(val ranking: AhpRanking, val invalidNode: List<InvalidNode>)
+data class InvalidNode(val name: String, val cr: BigDecimal)
+data class AhpResult(val ranking: AhpRanking, val invalidNode: List<InvalidNode>)

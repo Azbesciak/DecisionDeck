@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmc:XMCDA xmlns:xmc="http://www.decision-deck.org/2012/XMCDA-2.2.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.decision-deck.org/2012/XMCDA-2.2.1
+	http://www.decision-deck.org/xmcda/_downloads/XMCDA-2.2.1.xsd">
+    <criteria>
+        <criterion id="Price" name="Price"/>
+        <criterion id="Power" name="Power"/>
+        <criterion id="0-100" name="Time 0-100km/h"/>
+        <criterion id="Consumption" name="Fuel consumption"/>
+        <criterion id="CO2" name="CO2"/>
+    </criteria>
+</xmc:XMCDA>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2018/XMCDA-3.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2018/XMCDA-3.1.0 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.0.xsd">
+	<criteriaValues>
+		<criterionValue>
+			<criterionID>sweetness</criterionID>
+			<values>
+				<value>
+					<real>0.6491180046313254</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>price</criterionID>
+			<values>
+				<value>
+					<real>0.27895456548641834</real>
+				</value>
+			</values>
+		</criterionValue>
+		<criterionValue>
+			<criterionID>size</criterionID>
+			<values>
+				<value>
+					<real>0.07192742988225631</real>
+				</value>
+			</values>
+		</criterionValue>
+	</criteriaValues>
+</xmcda:XMCDA>
