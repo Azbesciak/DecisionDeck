@@ -8,7 +8,9 @@ It's a part of Bachelor's thesis.
    - normalization and weighting - [`topsis-normalization-weighting`](https://github.com/Azbesciak/DecisionDeck/tree/master/topsis-normalization-weighting)
    - determine ideal alternatives - [`topsis-ideal-alternatives`](https://github.com/Azbesciak/DecisionDeck/tree/master/topsis-ideal-alternatives)
    - determine ranking by distance to ideal positive alternative - [`topsis-distance-ranking`](https://github.com/Azbesciak/DecisionDeck/tree/master/topsis-distance-ranking)
- - [AHP](https://en.wikipedia.org/wiki/Analytic_hierarchy_process): [`ahp`](https://github.com/Azbesciak/DecisionDeck/tree/master/ahp)
+ - [AHP](https://en.wikipedia.org/wiki/Analytic_hierarchy_process):
+   - base method - [`ahp`](https://github.com/Azbesciak/DecisionDeck/tree/master/ahp)
+   - determination of criteria weights based on their pairwise comparisons - [`ahp-criteria`](https://github.com/Azbesciak/DecisionDeck/tree/master/ahp-criteria)
  - [VIKOR](https://en.wikipedia.org/wiki/VIKOR_method)
    - S (*the maximum group utility*) and  R (*the minimum individual regret of the opponent*) vectors - [`vikor-SR`](https://github.com/Azbesciak/DecisionDeck/tree/master/vikor-SR)
    - compromise solution - [`vikor-compromises`](https://github.com/Azbesciak/DecisionDeck/tree/master/vikor-SR)
