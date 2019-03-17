@@ -8,7 +8,7 @@ Prerequisites
 - Java 8
 - Gradle 4+ [optional - can also use attached wrapper in root]
 
-Running TOPSIS.sh
+Running run.sh
 --------------
 
 You need to update the file 'common_settings.sh' and modify it so that
