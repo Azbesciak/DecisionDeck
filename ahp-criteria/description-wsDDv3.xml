@@ -13,7 +13,7 @@
             </documentation>
             <xmcda tag="criteria"/>
         </input>
-        <input id="input2" name="criteria_comparison" displayName="criteria comparison" isoptional="0">
+        <input id="input2" name="criteria_comparisons" displayName="criteria comparisons" isoptional="0">
             <documentation>
                 <description>Matrix of pairwise comparisons between criteria.
 The rows and the columns are named according to the IDs of the criterion.
