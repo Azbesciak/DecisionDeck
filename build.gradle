@@ -47,7 +47,7 @@ subprojects {
 
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        compile group: 'org.decision-deck', name: 'xmcda', version: '0.4.1-SNAPSHOT'
+        compile group: 'org.decision-deck', name: 'xmcda', version: '0.5'
         compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
         compile group: 'com.sun.activation', name: 'javax.activation', version: '1.2.0'
         compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.4.0-b180830.0438'
