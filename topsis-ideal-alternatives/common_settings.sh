@@ -1,6 +1,9 @@
 # Adapt the two following lines -- NB: Java 8 is required
 JAVA_HOME="C:/dev/Java/JDK8"
 GRADLE_EXE_PATH="../gradlew"
+# These 2 instruct the XMCDA Java lib to use a specific version when writing
+XMCDAv2_VERSION=2.2.2
+XMCDAv3_VERSION=3.1.0
 
 # -- You normally do not need to change anything beyond this point --
 JAR_PATH="./build/libs" #default path where gradle puts outputs, however may be changed later as same as jar name if necessary
