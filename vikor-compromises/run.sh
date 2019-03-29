@@ -4,7 +4,7 @@
 
 # Adapt if needed.  R v3.x is required
 # Use the full path here
-R3=/usr/bin/R
+R3=/usr/local/test-v3/R-3.5.2/bin/R
 
 if [ ! -x "${R3}" ]; then
   echo "Please edit '$0': R exec not found" >&2
@@ -21,10 +21,10 @@ if [ ! $# == 3 ]; then
   echo "Usage: $0 [--v2|--v3] input_dir output_dir" >&2
   exit 3
 elif [ "$1" = "--v3" ]; then
-  "$R" --slave --vanilla --file=src/vikorCompromisesCLI_XMCDAv3.R --args "$2" "$3"
+  "${R3}" --slave --vanilla --file=src/vikorCompromisesCLI_XMCDAv3.R --args "$2" "$3"
   ret=$?
 elif [ "$1" = "--v2" ]; then
-  "$R" --slave --vanilla --file=src/vikorCompromisesCLI_XMCDAv2.R --args "$2" "$3"
+  "${R3}" --slave --vanilla --file=src/vikorCompromisesCLI_XMCDAv2.R --args "$2" "$3"
   ret=$?
 else
   echo "Usage: $0 [--v2|--v3] input_dir output_dir" >&2
