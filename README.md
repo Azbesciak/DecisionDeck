@@ -22,6 +22,7 @@ It's a part of Bachelor's thesis.
 Requirements:
 - Java 8 
 > JVM projects works also with 8+ due to included in `build.gradle` XML dependencies; however, due to not attached xml jars with XMCDA, those are not visible on R Java classpath - this only works with JDK 8 when standalone usage is required. Propably installing those jars (for example [`javax.xml.bind`](https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api/2.4.0-b180830.0359)) indivitually will solve the problem; not tested though.
+- The [XMCDA Java library v0.6](https://search.maven.org/artifact/org.decision-deck/xmcda/0.6/jar)
 - R - at least 3.5 (required only when using R modules)
 - optionally Gradle 4.10+; however, it is recommended to use embedded wrapper.
 
