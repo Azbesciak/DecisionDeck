@@ -44,6 +44,13 @@ for i in $(seq 1 "${NB_TESTS}"); do
     c14n_dir $REFERENCE_OUT
     c14n_dir $OUT
 
+    # round real numbers in q.xml before comparing them
+    precision_8='s|<real>(-?[0-9]*\.[0-9]{8})[0-9]*(e.*)?</real>|<real>\1\2</real>|g'
+    for d in "${REFERENCE_OUT}" "${OUT}";
+    do
+        sed -E -i -e ${precision_8} "${d}/q.xml"
+    done
+
     diff -x README -ruBw "${REFERENCE_OUT}" "${OUT}"
     ret_diff=$?
     if [ $ret_diff -ne 0 ]; then
