@@ -6,6 +6,10 @@
 # Use the full path here
 R3=/usr/bin/R
 
+# These 2 instruct the XMCDA Java lib to use a specific version when writing
+export XMCDAv2_VERSION=2.2.2
+export XMCDAv3_VERSION=3.1.0
+
 if [ ! -x "${R3}" ]; then
   echo "Please edit '$0': R exec not found" >&2
   exit 1
