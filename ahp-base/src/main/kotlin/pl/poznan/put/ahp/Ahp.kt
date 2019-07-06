@@ -57,10 +57,10 @@ class Category(
 
     var preference: Double = 1.0
         set(value) {
-            field = value
+            field *= value
             subNodes.forEach {
                 when (it) {
-                    is Category -> it.preference *= value
+                    is Category -> it.preference = value
                     is AhpAlternative -> it.preferences[name] = (it.preferences[name] ?: 1.0) * value
                 }
             }
