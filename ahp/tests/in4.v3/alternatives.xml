@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2019/XMCDA-3.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2019/XMCDA-3.1.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.1.xsd">
+	<alternatives>
+		<alternative id="no" name="New Office">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+		<alternative id="erp" name="ERP impl.">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+		<alternative id="chOff" name="Chinese Office">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+		<alternative id="iProd" name="Intern. Product">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+		<alternative id="itOuts" name="IT Outsourc.">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+		<alternative id="locCamp" name="Local Campaign">
+			<type>real</type>
+			<active>true</active>
+		</alternative>
+	</alternatives>
+</xmcda:XMCDA>

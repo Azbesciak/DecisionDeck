@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance" xmlns:xmcda="http://www.decision-deck.org/2019/XMCDA-2.2.3">
+    <alternativesValues>
+        <alternativeValue>
+            <alternativeID>iProd</alternativeID>
+            <value>
+                <real>0.35256221039266156</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>chOff</alternativeID>
+            <value>
+                <real>0.296471569973026</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>locCamp</alternativeID>
+            <value>
+                <real>0.12919799519927902</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>no</alternativeID>
+            <value>
+                <real>0.10000488203955157</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>erp</alternativeID>
+            <value>
+                <real>0.06137735949952982</real>
+            </value>
+        </alternativeValue>
+        <alternativeValue>
+            <alternativeID>itOuts</alternativeID>
+            <value>
+                <real>0.06038598289595208</real>
+            </value>
+        </alternativeValue>
+    </alternativesValues>
+</xmcda:XMCDA>

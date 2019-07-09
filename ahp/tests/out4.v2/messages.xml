@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance" xmlns:xmcda="http://www.decision-deck.org/2019/XMCDA-2.2.3">
+    <methodMessages>
+        <logMessage id="executionStatus" name="execution status">
+            <text>Warning</text>
+        </logMessage>
+        <logMessage>
+            <text>Found invalid nodes (cr should be below 0.1): itk - 0.10013703, lr - 0.10323111, ur - 0.10300334, iacim - 0.11094729}</text>
+        </logMessage>
+    </methodMessages>
+</xmcda:XMCDA>

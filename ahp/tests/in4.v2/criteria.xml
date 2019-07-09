@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmcda:XMCDA xmlns:xsi="http://www.w3.org/2001/XMLSchema-Instance" xmlns:xmcda="http://www.decision-deck.org/2019/XMCDA-2.2.3">
+    <criteria>
+        <criterion id="root" name="Goal: ACME Project selection">
+            <active>true</active>
+        </criterion>
+        <criterion id="scCom" name="Stakeholders Commitment">
+            <active>true</active>
+        </criterion>
+        <criterion id="fin" name="Financial">
+            <active>true</active>
+        </criterion>
+        <criterion id="str" name="Strategic">
+            <active>true</active>
+        </criterion>
+        <criterion id="oc" name="Other Criteria">
+            <active>true</active>
+        </criterion>
+        <criterion id="teamCom" name="Team Commitment">
+            <active>true</active>
+        </criterion>
+        <criterion id="orgCom" name="Organizational Commitment">
+            <active>true</active>
+        </criterion>
+        <criterion id="pmCom" name="Project Manager Commitment">
+            <active>true</active>
+        </criterion>
+        <criterion id="roi" name="Return on Investment">
+            <active>true</active>
+        </criterion>
+        <criterion id="profit" name="Profit">
+            <active>true</active>
+        </criterion>
+        <criterion id="npv" name="Net Present Value">
+            <active>true</active>
+        </criterion>
+        <criterion id="iacim" name="Imp. Ability to Compete in International Markets">
+            <active>true</active>
+        </criterion>
+        <criterion id="iip" name="Imp. Internal Process">
+            <active>true</active>
+        </criterion>
+        <criterion id="ir" name="Imp. Reputation">
+            <active>true</active>
+        </criterion>
+        <criterion id="lr" name="Lower Risk for the Organization">
+            <active>true</active>
+        </criterion>
+        <criterion id="ur" name="Urgency">
+            <active>true</active>
+        </criterion>
+        <criterion id="itk" name="Internal Technical Knowledge">
+            <active>true</active>
+        </criterion>
+    </criteria>
+</xmcda:XMCDA>

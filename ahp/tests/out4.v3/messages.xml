@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2019/XMCDA-3.1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.decision-deck.org/2019/XMCDA-3.1.1 http://www.decision-deck.org/xmcda/_downloads/XMCDA-3.1.1.xsd">
+	<programExecutionResult>
+		<status>warning</status>
+		<messages>
+			<message level="warning">
+				<text>Found invalid nodes (cr should be below 0.1): itk - 0.10013703, lr - 0.10323111, ur - 0.10300334, iacim - 0.11094729}</text>
+			</message>
+		</messages>
+	</programExecutionResult>
+</xmcda:XMCDA>
