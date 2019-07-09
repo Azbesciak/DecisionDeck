@@ -51,7 +51,11 @@ abstract class XMCDAv2Client<Input, Output> {
     private fun computeInputs(inputs: Input, executionResult: ProgramExecutionResult, prgExecResultsFile: File): Output {
         return try {
             manager.compute(inputs)
-        } catch (t: Throwable) {
+        } catch (w: WarnException) {
+            executionResult.addWarning(w.message)
+            w.result as Output
+        }
+        catch (t: Throwable) {
             executionResult.addError(getMessage("The calculation could not be performed, reason: ", t))
             writeProgramExecutionResultsAndExit(prgExecResultsFile, executionResult, XmcdaVersion.v2)
             exitProcess(-1)

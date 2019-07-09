@@ -44,7 +44,10 @@ abstract class XMCDAv3Client<Input, Output>{
     private fun calculateResults(inputs: Input, executionResult: ProgramExecutionResult, prgExecResults: File) =
             try {
                 manager.compute(inputs)
-            } catch (t: Throwable) {
+            } catch (w: WarnException) {
+                executionResult.addWarning(w.message)
+                w.result as Output
+            }  catch (t: Throwable) {
                 writeErrorMessageAndExit(t, "The calculation could not be performed, reason: ", prgExecResults, executionResult)
             }
 

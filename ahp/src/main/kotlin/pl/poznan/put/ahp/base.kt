@@ -15,11 +15,7 @@ internal val v3files = criteriaV3files + arrayOf(
         XmcdaFile("preference", tag = "alternativesMatrix")
 )
 
-internal val ahpComputationManager = ComputationManager(
-        AhpInputsHandler, AhpOutputsHandler
-) {
-    require(invalidNode.isEmpty()) { validityErrorMessage() }
-    ranking
-}
+internal val ahpComputationManager =
+        ComputationManager(AhpInputsHandler, AhpOutputsHandler, AhpResult::compute)
 
 typealias CrytId = String

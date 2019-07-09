@@ -1,5 +1,6 @@
 package pl.poznan.put.ahp
 
+import pl.poznan.put.xmcda.WarnException
 import pl.poznan.put.xmcda.XmcdaFile
 
 val criteriaV2files = arrayOf(
@@ -17,3 +18,8 @@ typealias CrytId = String
 fun AhpResult.validityErrorMessage() =
         "Found invalid nodes (cr should be below ${Category.VALIDITY_THRESHOLD}): ${invalidNode.joinToString(", ") { "${it.name} - ${it.cr}" }}}"
 
+fun AhpResult.compute() =
+        if (invalidNode.isNotEmpty())
+            throw WarnException(validityErrorMessage(), ranking)
+        else
+            ranking
