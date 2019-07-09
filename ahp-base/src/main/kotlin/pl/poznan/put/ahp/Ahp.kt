@@ -1,6 +1,6 @@
 package pl.poznan.put.ahp
 
-import koma.matrix.ejml.backend.div
+import org.ejml.simple.SimpleEVD
 import org.ejml.simple.SimpleMatrix
 import pl.poznan.put.xmcda.ranking.Alternative
 import pl.poznan.put.xmcda.ranking.RankEntry
@@ -111,26 +111,17 @@ class Category(
 
     private fun initialize() {
         val n = subNodes.size
-        val tempMat = preferenceMat.map { it.toDoubleArray() }.toTypedArray()
-        val eig = SimpleMatrix(tempMat).eig()
-        requireCondition(eig.numberOfEigenvalues == n) { "missing eigen values, got ${eig.numberOfEigenvalues}" }
-        val eigenVector = eig.getEigenVector(n - 1)
-        val normalized = eigenVector.div(eigenVector.elementSum())
+        val (maxEigenValue, normalizedEigenVector) = EigenCalculator.calculate(preferenceMat)
         if (n > 1) {
             val bdn = BigDecimal(n)
-            val maxValue = BigDecimal(
-                    (0 until n)
-                            .map { eig.getEigenvalue(it).magnitude }
-                            .max() ?: 0.0
-            ).setScale(8, RoundingMode.HALF_UP)
-            ci = (maxValue - bdn) / (bdn - BigDecimal.ONE)
+            ci = (maxEigenValue - bdn) / (bdn - BigDecimal.ONE)
             cr = if (n > 2) ci / ri[n] else BigDecimal.ZERO
         }
 
         subNodes.forEachIndexed { i, c ->
             when (c) {
-                is Category -> c.preference = normalized[i]
-                is AhpAlternative -> c.preferences[name] = normalized[i]
+                is Category -> c.preference = normalizedEigenVector[i]
+                is AhpAlternative -> c.preferences[name] = normalizedEigenVector[i]
             }
         }
     }
@@ -151,3 +142,36 @@ class Category(
 
 data class InvalidNode(val name: String, val cr: BigDecimal)
 data class AhpResult(val ranking: AhpRanking, val invalidNode: List<InvalidNode>)
+
+
+data class Eigen(
+        val principalEigenValue: BigDecimal,
+        val normalizedPrincipalEigenVector: List<Double>
+)
+
+object EigenCalculator {
+    fun calculate(mat: List<List<Double>>): Eigen {
+        val n = mat.size
+        val tempMat = mat.map { it.toDoubleArray() }.toTypedArray()
+        val eig = SimpleMatrix(tempMat).eig()
+        require(eig.numberOfEigenvalues == n) {
+            "missing eigen values, got ${eig.numberOfEigenvalues} for matrix $mat"
+        }
+        val eigenVector = eig.getEigenVector(n - 1)
+        val positiveValues = (0 until eigenVector.numRows())
+                .map { eigenVector[it] }
+                .map { if (it < 0) it * -.5 else it }
+        val total = positiveValues.sum()
+        val normalized = positiveValues.map { it / total }
+        val principalEigenValue = eig.principalEigenValue(n)
+        return Eigen(principalEigenValue, normalized)
+    }
+
+    private fun SimpleEVD<SimpleMatrix>.principalEigenValue(n: Int) =
+            if (n > 1)
+                BigDecimal((0 until n)
+                        .map { getEigenvalue(it).magnitude }
+                        .max() ?: 0.0
+                ).setScale(8, RoundingMode.HALF_UP)
+            else BigDecimal.ONE
+}

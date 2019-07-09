@@ -1,28 +1,11 @@
 package pl.poznan.put.ahp
 
-import org.ejml.simple.SimpleMatrix
 import spock.lang.Specification
 
 import static spock.util.matcher.HamcrestMatchers.closeTo
 import static spock.util.matcher.HamcrestSupport.that
 
 class AHPTests extends Specification {
-    def "eigen test"() {
-        given:
-        double[][] mat = [
-                [1, 1 / 3, 5],
-                [3, 1, 7],
-                [1 / 5, 1 / 7, 1]
-        ]
-        def matrix = new SimpleMatrix(mat)
-        def eig = matrix.eig()
-        def eigVec = eig.getEigenVector(2)
-
-        expect:
-        eig.numberOfEigenvalues == 3
-        eigVec.matrix.numRows == 3
-        eigVec.matrix.numCols == 1
-    }
 
     def "eigen on Category"() {
         given:
@@ -246,10 +229,10 @@ class AHPTests extends Specification {
         that goal.totalCR, closeTo(0.0245,0.0001)
 
         def ranking = AhpAlternative.ranking(alternatives)
-        ranking[0].alternative == accordHybrid
-        ranking[1].alternative == crvSuv
+        ranking[0].alternative == accordSedan
+        ranking[1].alternative == accordHybrid
         ranking[2].alternative == pilotSuv
-        ranking[3].alternative == accordSedan
+        ranking[3].alternative == crvSuv
     }
 
     def alt(name) {
