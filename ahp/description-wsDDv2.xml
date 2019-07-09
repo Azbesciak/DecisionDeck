@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="AHP_priorities" version="1.0.0" displayName="AHP_priorities"/>
+    <program provider="PUT" name="AHP_priorities" version="1.1.0" displayName="AHP_priorities"/>
     <documentation>
         <description>Computes ranking for given alternatives and criteria using AHP method.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>

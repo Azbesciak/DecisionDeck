@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <program_description>
-    <program provider="PUT" name="AHP_criteriaWeights" version="1.0.0" displayName="AHP_criteriaWeights"/>
+    <program provider="PUT" name="AHP_criteriaWeights" version="1.1.0" displayName="AHP_criteriaWeights"/>
     <documentation>
         <description>Computes criteria weights using AHP method.</description>
         <contact><![CDATA[Witold Kupś <witkups@gmail.com>]]></contact>
